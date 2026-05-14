@@ -1,0 +1,23 @@
+# Static-only deploy — exclude Laravel scaffold from Vercel upload
+api/
+app/
+artisan
+bootstrap/
+build.sh
+composer.json
+composer.lock
+config/
+database/
+node_modules/
+package-lock.json
+package.json
+postcss.config.js
+public/
+resources/
+routes/
+storage/
+tailwind.config.js
+vendor/
+vite.config.js
+.env*
+*.md
