@@ -1,0 +1,5 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Admin panel styles — extend via @layer components when controllers are wired up. */

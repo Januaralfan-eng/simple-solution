@@ -1,0 +1,30 @@
+{
+  "version": 2,
+  "framework": null,
+  "functions": {
+    "api/index.php": {
+      "runtime": "vercel-php@0.7.2"
+    }
+  },
+  "routes": [
+    { "src": "/build/(.*)",   "dest": "/build/$1" },
+    { "src": "/images/(.*)",  "dest": "/images/$1" },
+    { "src": "/favicon.ico",  "dest": "/favicon.ico" },
+    { "src": "/robots.txt",   "dest": "/robots.txt" },
+    { "src": "/(.*)",         "dest": "/api/index.php" }
+  ],
+  "env": {
+    "APP_ENV":           "production",
+    "APP_DEBUG":         "false",
+    "LOG_CHANNEL":       "stderr",
+    "CACHE_DRIVER":      "array",
+    "SESSION_DRIVER":    "cookie",
+    "QUEUE_CONNECTION":  "sync",
+    "FILESYSTEM_DISK":   "s3"
+  },
+  "build": {
+    "env": {
+      "APP_ENV": "production"
+    }
+  }
+}

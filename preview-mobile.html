@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mobile Preview — Creative Agency</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background: #1a1a1a;
+            color: #fafafa;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 24px 16px 40px;
+            gap: 20px;
+        }
+        .toolbar {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: #2a2a2a;
+            padding: 8px 14px;
+            border-radius: 999px;
+            font-size: 13px;
+            border: 1px solid #3a3a3a;
+        }
+        .toolbar select {
+            background: transparent;
+            color: #fafafa;
+            border: none;
+            outline: none;
+            font: inherit;
+            cursor: pointer;
+        }
+        .toolbar select option { background: #2a2a2a; color: #fafafa; }
+        .toolbar button {
+            background: transparent;
+            color: #fafafa;
+            border: 1px solid #3a3a3a;
+            border-radius: 999px;
+            padding: 4px 10px;
+            font: inherit;
+            cursor: pointer;
+        }
+        .toolbar button:hover { background: #3a3a3a; }
+        .toolbar a {
+            color: #9ca3af;
+            text-decoration: none;
+            font-size: 12px;
+        }
+        .toolbar a:hover { color: #fafafa; }
+        .device {
+            position: relative;
+            border-radius: 44px;
+            background: #0a0a0a;
+            padding: 10px;
+            box-shadow:
+                0 0 0 2px #2a2a2a,
+                0 30px 60px -15px rgba(0,0,0,.6),
+                0 0 0 8px #1a1a1a;
+            transition: width .25s ease, height .25s ease;
+        }
+        .device::before {
+            content: "";
+            position: absolute;
+            top: 18px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 28px;
+            background: #0a0a0a;
+            border-radius: 999px;
+            z-index: 2;
+        }
+        .device iframe {
+            display: block;
+            border: 0;
+            border-radius: 36px;
+            background: #fff;
+            width: 100%;
+            height: 100%;
+        }
+        .size-info {
+            font-size: 12px;
+            color: #9ca3af;
+            font-family: ui-monospace, "JetBrains Mono", Menlo, monospace;
+        }
+    </style>
+</head>
+<body>
+
+<div class="toolbar">
+    <label for="device-select" style="color:#9ca3af">Device:</label>
+    <select id="device-select">
+        <option value="375x667">iPhone SE — 375 × 667</option>
+        <option value="390x844" selected>iPhone 13/14 — 390 × 844</option>
+        <option value="430x932">iPhone 15 Pro Max — 430 × 932</option>
+        <option value="360x800">Android Standard — 360 × 800</option>
+        <option value="412x915">Pixel 7 — 412 × 915</option>
+        <option value="768x1024">iPad — 768 × 1024</option>
+    </select>
+    <button id="rotate-btn" title="Rotate">⟳ Rotate</button>
+    <span class="size-info" id="size-info"></span>
+    <a href="/preview-home.html" target="_blank">Open in full window ↗</a>
+</div>
+
+<div class="device" id="device">
+    <iframe id="frame" src="/preview-home.html" title="Mobile preview"></iframe>
+</div>
+
+<script>
+    const device   = document.getElementById('device');
+    const select   = document.getElementById('device-select');
+    const sizeInfo = document.getElementById('size-info');
+    const rotate   = document.getElementById('rotate-btn');
+    let rotated = false;
+
+    function apply() {
+        const [w, h] = select.value.split('x').map(Number);
+        const [ww, hh] = rotated ? [h, w] : [w, h];
+        device.style.width  = ww + 'px';
+        device.style.height = hh + 'px';
+        sizeInfo.textContent = `${ww} × ${hh}px`;
+    }
+
+    select.addEventListener('change', () => { rotated = false; apply(); });
+    rotate.addEventListener('click', () => { rotated = !rotated; apply(); });
+
+    apply();
+</script>
+
+</body>
+</html>
