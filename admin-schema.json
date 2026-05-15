@@ -31,7 +31,7 @@
     },
     {
       "id": "services",
-      "title": "Services (Layanan)",
+      "title": "Layanan",
       "fields": [
         { "key": "services.eyebrow",    "label": "Label kecil \"Apa yang kami kerjakan\"", "type": "text", "selector": "#services .section-label",        "textOnly": true },
         { "key": "services.title",      "label": "Judul section",                         "type": "text", "selector": "#services h2.section-title" },
@@ -84,7 +84,7 @@
     },
     {
       "id": "about",
-      "title": "About / Process (Cara kerja)",
+      "title": "Cara Kerja Kami (Proses)",
       "fields": [
         { "key": "about.eyebrow",    "label": "Label kecil \"Cara kerja kami\"", "type": "text",     "selector": "#about .section-label",  "textOnly": true },
         { "key": "about.title",      "label": "Judul section (boleh <br>)",      "type": "textarea", "selector": "#about h2.section-title", "html": true },
@@ -101,7 +101,7 @@
     },
     {
       "id": "team",
-      "title": "Tim",
+      "title": "Tim Kami",
       "fields": [
         { "key": "team.eyebrow",  "label": "Label kecil \"Tim kami\"",  "type": "text", "selector": "#team .section-label",  "textOnly": true },
         { "key": "team.title",    "label": "Judul section",             "type": "text", "selector": "#team h2.section-title" },
@@ -128,7 +128,7 @@
     },
     {
       "id": "pricing",
-      "title": "Pricing (Harga)",
+      "title": "Harga (Pricing)",
       "fields": [
         { "key": "pricing.eyebrow",    "label": "Label kecil \"Harga\"", "type": "text",     "selector": "#pricing .section-label",      "textOnly": true },
         { "key": "pricing.title",      "label": "Judul section",         "type": "text",     "selector": "#pricing h2.section-title" },
