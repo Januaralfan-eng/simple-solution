@@ -127,6 +127,29 @@
       ]
     },
     {
+      "id": "blog",
+      "title": "Blog / Wawasan (3 artikel)",
+      "fields": [
+        { "key": "blog.eyebrow", "label": "Label kecil \"Insight\"", "type": "text", "selector": "#blog .section-label", "textOnly": true },
+        { "key": "blog.title",   "label": "Judul section",          "type": "text", "selector": "#blog h2.section-title" },
+
+        { "key": "blog.a1.cat",     "label": "Artikel 1 — kategori",  "type": "text",     "selector": "#blog article:nth-of-type(1) .badge" },
+        { "key": "blog.a1.date",    "label": "Artikel 1 — tanggal",   "type": "text",     "selector": "#blog article:nth-of-type(1) [data-blog-date]" },
+        { "key": "blog.a1.title",   "label": "Artikel 1 — judul",     "type": "text",     "selector": "#blog article:nth-of-type(1) h3" },
+        { "key": "blog.a1.excerpt", "label": "Artikel 1 — ringkasan", "type": "textarea", "selector": "#blog article:nth-of-type(1) .p-6 > p" },
+
+        { "key": "blog.a2.cat",     "label": "Artikel 2 — kategori",  "type": "text",     "selector": "#blog article:nth-of-type(2) .badge" },
+        { "key": "blog.a2.date",    "label": "Artikel 2 — tanggal",   "type": "text",     "selector": "#blog article:nth-of-type(2) [data-blog-date]" },
+        { "key": "blog.a2.title",   "label": "Artikel 2 — judul",     "type": "text",     "selector": "#blog article:nth-of-type(2) h3" },
+        { "key": "blog.a2.excerpt", "label": "Artikel 2 — ringkasan", "type": "textarea", "selector": "#blog article:nth-of-type(2) .p-6 > p" },
+
+        { "key": "blog.a3.cat",     "label": "Artikel 3 — kategori",  "type": "text",     "selector": "#blog article:nth-of-type(3) .badge" },
+        { "key": "blog.a3.date",    "label": "Artikel 3 — tanggal",   "type": "text",     "selector": "#blog article:nth-of-type(3) [data-blog-date]" },
+        { "key": "blog.a3.title",   "label": "Artikel 3 — judul",     "type": "text",     "selector": "#blog article:nth-of-type(3) h3" },
+        { "key": "blog.a3.excerpt", "label": "Artikel 3 — ringkasan", "type": "textarea", "selector": "#blog article:nth-of-type(3) .p-6 > p" }
+      ]
+    },
+    {
       "id": "pricing",
       "title": "Harga (Pricing)",
       "fields": [
