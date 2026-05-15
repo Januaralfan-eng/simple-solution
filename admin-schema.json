@@ -118,21 +118,27 @@
         { "key": "team.m1.name",  "label": "Anggota 1 — nama",  "type": "text", "selector": "#team article:nth-of-type(1) h3" },
         { "key": "team.m1.role",  "label": "Anggota 1 — role",  "type": "text", "selector": "#team article:nth-of-type(1) .min-w-0 > p" },
         { "key": "team.m1.bio",   "label": "Anggota 1 — bio",   "type": "textarea", "selector": "#team article:nth-of-type(1) > p" },
+        { "key": "team.m1.link",  "label": "Anggota 1 — link portofolio (URL)", "type": "text", "selector": "#team article:nth-of-type(1) [data-team-link]", "attribute": "href" },
         { "key": "team.m2.name",  "label": "Anggota 2 — nama",  "type": "text", "selector": "#team article:nth-of-type(2) h3" },
         { "key": "team.m2.role",  "label": "Anggota 2 — role",  "type": "text", "selector": "#team article:nth-of-type(2) .min-w-0 > p" },
         { "key": "team.m2.bio",   "label": "Anggota 2 — bio",   "type": "textarea", "selector": "#team article:nth-of-type(2) > p" },
+        { "key": "team.m2.link",  "label": "Anggota 2 — link portofolio (URL)", "type": "text", "selector": "#team article:nth-of-type(2) [data-team-link]", "attribute": "href" },
         { "key": "team.m3.name",  "label": "Anggota 3 — nama",  "type": "text", "selector": "#team article:nth-of-type(3) h3" },
         { "key": "team.m3.role",  "label": "Anggota 3 — role",  "type": "text", "selector": "#team article:nth-of-type(3) .min-w-0 > p" },
         { "key": "team.m3.bio",   "label": "Anggota 3 — bio",   "type": "textarea", "selector": "#team article:nth-of-type(3) > p" },
+        { "key": "team.m3.link",  "label": "Anggota 3 — link portofolio (URL)", "type": "text", "selector": "#team article:nth-of-type(3) [data-team-link]", "attribute": "href" },
         { "key": "team.m4.name",  "label": "Anggota 4 — nama",  "type": "text", "selector": "#team article:nth-of-type(4) h3" },
         { "key": "team.m4.role",  "label": "Anggota 4 — role",  "type": "text", "selector": "#team article:nth-of-type(4) .min-w-0 > p" },
         { "key": "team.m4.bio",   "label": "Anggota 4 — bio",   "type": "textarea", "selector": "#team article:nth-of-type(4) > p" },
+        { "key": "team.m4.link",  "label": "Anggota 4 — link portofolio (URL)", "type": "text", "selector": "#team article:nth-of-type(4) [data-team-link]", "attribute": "href" },
         { "key": "team.m5.name",  "label": "Anggota 5 — nama",  "type": "text", "selector": "#team article:nth-of-type(5) h3" },
         { "key": "team.m5.role",  "label": "Anggota 5 — role",  "type": "text", "selector": "#team article:nth-of-type(5) .min-w-0 > p" },
         { "key": "team.m5.bio",   "label": "Anggota 5 — bio",   "type": "textarea", "selector": "#team article:nth-of-type(5) > p" },
+        { "key": "team.m5.link",  "label": "Anggota 5 — link portofolio (URL)", "type": "text", "selector": "#team article:nth-of-type(5) [data-team-link]", "attribute": "href" },
         { "key": "team.m6.name",  "label": "Anggota 6 — nama",  "type": "text", "selector": "#team article:nth-of-type(6) h3" },
         { "key": "team.m6.role",  "label": "Anggota 6 — role",  "type": "text", "selector": "#team article:nth-of-type(6) .min-w-0 > p" },
-        { "key": "team.m6.bio",   "label": "Anggota 6 — bio",   "type": "textarea", "selector": "#team article:nth-of-type(6) > p" }
+        { "key": "team.m6.bio",   "label": "Anggota 6 — bio",   "type": "textarea", "selector": "#team article:nth-of-type(6) > p" },
+        { "key": "team.m6.link",  "label": "Anggota 6 — link portofolio (URL)", "type": "text", "selector": "#team article:nth-of-type(6) [data-team-link]", "attribute": "href" }
       ]
     },
     {
