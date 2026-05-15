@@ -614,10 +614,14 @@
         det.dataset.sectionId = section.id;
         if (section.id === 'hero') det.open = true;
 
+        const isList    = !!section.listConfig;
+        const itemCount = isList ? (section.items?.length || 0) : 0;
+        const totalFields = (section.fields?.length || 0) + (isList ? itemCount * (section.items[0]?.fields.length || 0) : 0);
+
         const sum = document.createElement('summary');
         const title = document.createElement('span');
-        title.textContent = section.title;
-        const count = document.createElement('span'); count.className = 'count'; count.textContent = `${section.fields.length} field`;
+        title.textContent = section.title + (isList ? ` (${itemCount} ${section.listConfig.itemLabel.toLowerCase()})` : '');
+        const count = document.createElement('span'); count.className = 'count'; count.textContent = `${totalFields} field`;
         const dot   = document.createElement('span'); dot.className = 'dirty-dot';
         sum.appendChild(title);
         const right = document.createElement('span');
@@ -628,9 +632,95 @@
 
         const fields = document.createElement('div');
         fields.className = 'fields';
-        section.fields.forEach(f => fields.appendChild(makeField(f)));
+
+        // Static header fields first
+        (section.fields || []).forEach(f => fields.appendChild(makeField(f)));
+
+        // List section: add [+ Tambah] button + per-item subgroups
+        if (isList) {
+            const addBar = document.createElement('div');
+            addBar.style.cssText = 'display:flex;align-items:center;justify-content:space-between;padding:10px;background:var(--bg);border:1px dashed var(--border);border-radius:8px;margin-bottom:12px';
+            const lbl = document.createElement('span');
+            lbl.style.cssText = 'font-size:11px;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.04em';
+            lbl.textContent = `${section.listConfig.itemLabel} (${itemCount}/${section.listConfig.max})`;
+            const addBtn = document.createElement('button');
+            addBtn.type = 'button';
+            addBtn.textContent = `+ Tambah ${section.listConfig.itemLabel}`;
+            addBtn.disabled = itemCount >= section.listConfig.max;
+            addBtn.style.cssText = 'padding:6px 12px;font-size:12px';
+            addBtn.addEventListener('click', () => addListItem(section.id, addBtn));
+            addBar.appendChild(lbl);
+            addBar.appendChild(addBtn);
+            fields.appendChild(addBar);
+
+            (section.items || []).forEach((item, i) => {
+                const itemBox = document.createElement('div');
+                itemBox.style.cssText = 'padding:12px;background:var(--bg);border:1px solid var(--border);border-radius:10px;margin-bottom:12px';
+
+                const itemHeader = document.createElement('div');
+                itemHeader.style.cssText = 'display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--border)';
+                const itemTitle = document.createElement('span');
+                itemTitle.style.cssText = 'font-weight:600;font-size:13px';
+                itemTitle.textContent = `${section.listConfig.itemLabel} #${i + 1}`;
+                const removeBtn = document.createElement('button');
+                removeBtn.type = 'button';
+                removeBtn.className = 'danger';
+                removeBtn.textContent = '× Hapus';
+                removeBtn.disabled = itemCount <= section.listConfig.min;
+                removeBtn.style.cssText = 'padding:4px 10px;font-size:11px';
+                removeBtn.addEventListener('click', () => removeListItem(section.id, i, removeBtn));
+                itemHeader.appendChild(itemTitle);
+                itemHeader.appendChild(removeBtn);
+                itemBox.appendChild(itemHeader);
+
+                item.fields.forEach(f => itemBox.appendChild(makeField(f)));
+                fields.appendChild(itemBox);
+            });
+        }
+
         det.appendChild(fields);
         return det;
+    }
+
+    async function addListItem(sectionId, btn) {
+        if (dirtyKeys.size > 0 && !confirm('Ada perubahan belum disimpan — tetap tambah item baru? (perubahan akan tetap aman karena disimpan terpisah)')) return;
+        btn.disabled = true;
+        btn.textContent = 'Menambah…';
+        try {
+            const res = await fetch('/api/list-add', {
+                method: 'POST', headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ section: sectionId }),
+            });
+            const data = await res.json();
+            if (!res.ok || !data.ok) throw new Error(data.error || 'Gagal');
+            showToast(`Item baru #${data.newIndex + 1} ditambahkan · commit ${data.commitSha} · Vercel rebuild ~30 dtk`, 'success');
+            // Reload content to show new item
+            await loadContent();
+        } catch (err) {
+            showToast('Gagal tambah: ' + err.message, 'error');
+            btn.disabled = false;
+            btn.textContent = '+ Tambah';
+        }
+    }
+
+    async function removeListItem(sectionId, index, btn) {
+        if (!confirm(`Hapus item #${index + 1}? Tindakan ini tidak bisa di-undo (tapi tetap ada di history Git).`)) return;
+        btn.disabled = true;
+        btn.textContent = 'Menghapus…';
+        try {
+            const res = await fetch('/api/list-remove', {
+                method: 'POST', headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ section: sectionId, index }),
+            });
+            const data = await res.json();
+            if (!res.ok || !data.ok) throw new Error(data.error || 'Gagal');
+            showToast(`Item #${index + 1} dihapus · commit ${data.commitSha}`, 'success');
+            await loadContent();
+        } catch (err) {
+            showToast('Gagal hapus: ' + err.message, 'error');
+            btn.disabled = false;
+            btn.textContent = '× Hapus';
+        }
     }
 
     // ─── Account settings section (pinned at top) ────────

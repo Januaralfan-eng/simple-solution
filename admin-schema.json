@@ -145,78 +145,27 @@
           "label": "Sub-judul",
           "type": "textarea",
           "selector": "#services p.section-subtitle"
-        },
+        }
+      ],
+      "listConfig": {
+        "container": "#services .grid",
+        "itemSelector": "div.card",
+        "min": 1,
+        "max": 12,
+        "label": "Layanan"
+      },
+      "itemFields": [
         {
-          "key": "services.card1.title",
-          "label": "Card 1 — judul",
+          "key": "title",
+          "label": "Judul",
           "type": "text",
-          "selector": "#services .grid > div:nth-child(1) h3"
+          "scope": "h3"
         },
         {
-          "key": "services.card1.desc",
-          "label": "Card 1 — deskripsi",
+          "key": "desc",
+          "label": "Deskripsi",
           "type": "textarea",
-          "selector": "#services .grid > div:nth-child(1) p"
-        },
-        {
-          "key": "services.card2.title",
-          "label": "Card 2 — judul",
-          "type": "text",
-          "selector": "#services .grid > div:nth-child(2) h3"
-        },
-        {
-          "key": "services.card2.desc",
-          "label": "Card 2 — deskripsi",
-          "type": "textarea",
-          "selector": "#services .grid > div:nth-child(2) p"
-        },
-        {
-          "key": "services.card3.title",
-          "label": "Card 3 — judul",
-          "type": "text",
-          "selector": "#services .grid > div:nth-child(3) h3"
-        },
-        {
-          "key": "services.card3.desc",
-          "label": "Card 3 — deskripsi",
-          "type": "textarea",
-          "selector": "#services .grid > div:nth-child(3) p"
-        },
-        {
-          "key": "services.card4.title",
-          "label": "Card 4 — judul",
-          "type": "text",
-          "selector": "#services .grid > div:nth-child(4) h3"
-        },
-        {
-          "key": "services.card4.desc",
-          "label": "Card 4 — deskripsi",
-          "type": "textarea",
-          "selector": "#services .grid > div:nth-child(4) p"
-        },
-        {
-          "key": "services.card5.title",
-          "label": "Card 5 — judul",
-          "type": "text",
-          "selector": "#services .grid > div:nth-child(5) h3"
-        },
-        {
-          "key": "services.card5.desc",
-          "label": "Card 5 — deskripsi",
-          "type": "textarea",
-          "selector": "#services .grid > div:nth-child(5) p"
-        },
-        {
-          "key": "services.card6.title",
-          "label": "Card 6 — judul",
-          "type": "text",
-          "selector": "#services .grid > div:nth-child(6) h3"
-        },
-        {
-          "key": "services.card6.desc",
-          "label": "Card 6 — deskripsi",
-          "type": "textarea",
-          "selector": "#services .grid > div:nth-child(6) p"
+          "scope": "p"
         }
       ]
     },
@@ -236,186 +185,60 @@
           "label": "Judul section",
           "type": "text",
           "selector": "#portfolio h2.section-title"
-        },
+        }
+      ],
+      "listConfig": {
+        "container": "#portfolio .grid",
+        "itemSelector": "article",
+        "min": 1,
+        "max": 12,
+        "label": "Proyek"
+      },
+      "itemFields": [
         {
-          "key": "portfolio.c1.cat1",
-          "label": "Kartu 1 — kategori 1 (badge kiri)",
+          "key": "cat1",
+          "label": "Kategori 1 (badge)",
           "type": "text",
-          "selector": "#portfolio article:nth-of-type(1) .p-6 > div:first-child > span:nth-of-type(1)"
+          "scope": ".p-6 > div:first-child > span:nth-of-type(1)"
         },
         {
-          "key": "portfolio.c1.cat2",
-          "label": "Kartu 1 — kategori 2 (badge kanan)",
+          "key": "cat2",
+          "label": "Kategori 2 (badge)",
           "type": "text",
-          "selector": "#portfolio article:nth-of-type(1) .p-6 > div:first-child > span:nth-of-type(2)"
+          "scope": ".p-6 > div:first-child > span:nth-of-type(2)"
         },
         {
-          "key": "portfolio.c1.cover",
-          "label": "Kartu 1 — huruf cover (fallback kalau image kosong)",
+          "key": "cover",
+          "label": "Huruf cover (fallback)",
           "type": "text",
-          "selector": "#portfolio article:nth-of-type(1) span.text-6xl"
+          "scope": "span.text-6xl"
         },
         {
-          "key": "portfolio.c1.image",
-          "label": "Kartu 1 — upload foto cover (PNG/JPG, max 2 MB)",
+          "key": "image",
+          "label": "Upload foto cover",
           "type": "image",
-          "selector": "#portfolio article:nth-of-type(1) [data-portfolio-img]",
+          "scope": "[data-portfolio-img]",
           "attribute": "src",
-          "uploadSlot": "portfolio-c1"
+          "uploadSlot": "portfolio"
         },
         {
-          "key": "portfolio.c1.link",
-          "label": "Kartu 1 — link proyek (URL)",
+          "key": "link",
+          "label": "Link proyek (URL)",
           "type": "text",
-          "selector": "#portfolio article:nth-of-type(1) [data-portfolio-link]",
+          "scope": "[data-portfolio-link]",
           "attribute": "href"
         },
         {
-          "key": "portfolio.c1.title",
-          "label": "Kartu 1 — judul proyek",
+          "key": "title",
+          "label": "Judul proyek",
           "type": "text",
-          "selector": "#portfolio article:nth-of-type(1) .p-6 > h3"
+          "scope": ".p-6 > h3"
         },
         {
-          "key": "portfolio.c1.desc",
-          "label": "Kartu 1 — deskripsi proyek",
+          "key": "desc",
+          "label": "Deskripsi proyek",
           "type": "textarea",
-          "selector": "#portfolio article:nth-of-type(1) .p-6 > p"
-        },
-        {
-          "key": "portfolio.c2.cat1",
-          "label": "Kartu 2 — kategori 1",
-          "type": "text",
-          "selector": "#portfolio article:nth-of-type(2) .p-6 > div:first-child > span:nth-of-type(1)"
-        },
-        {
-          "key": "portfolio.c2.cat2",
-          "label": "Kartu 2 — kategori 2",
-          "type": "text",
-          "selector": "#portfolio article:nth-of-type(2) .p-6 > div:first-child > span:nth-of-type(2)"
-        },
-        {
-          "key": "portfolio.c2.cover",
-          "label": "Kartu 2 — huruf cover",
-          "type": "text",
-          "selector": "#portfolio article:nth-of-type(2) span.text-6xl"
-        },
-        {
-          "key": "portfolio.c2.image",
-          "label": "Kartu 2 — upload foto cover",
-          "type": "image",
-          "selector": "#portfolio article:nth-of-type(2) [data-portfolio-img]",
-          "attribute": "src",
-          "uploadSlot": "portfolio-c2"
-        },
-        {
-          "key": "portfolio.c2.link",
-          "label": "Kartu 2 — link proyek",
-          "type": "text",
-          "selector": "#portfolio article:nth-of-type(2) [data-portfolio-link]",
-          "attribute": "href"
-        },
-        {
-          "key": "portfolio.c2.title",
-          "label": "Kartu 2 — judul",
-          "type": "text",
-          "selector": "#portfolio article:nth-of-type(2) .p-6 > h3"
-        },
-        {
-          "key": "portfolio.c2.desc",
-          "label": "Kartu 2 — deskripsi",
-          "type": "textarea",
-          "selector": "#portfolio article:nth-of-type(2) .p-6 > p"
-        },
-        {
-          "key": "portfolio.c3.cat1",
-          "label": "Kartu 3 — kategori 1",
-          "type": "text",
-          "selector": "#portfolio article:nth-of-type(3) .p-6 > div:first-child > span:nth-of-type(1)"
-        },
-        {
-          "key": "portfolio.c3.cat2",
-          "label": "Kartu 3 — kategori 2",
-          "type": "text",
-          "selector": "#portfolio article:nth-of-type(3) .p-6 > div:first-child > span:nth-of-type(2)"
-        },
-        {
-          "key": "portfolio.c3.cover",
-          "label": "Kartu 3 — huruf cover",
-          "type": "text",
-          "selector": "#portfolio article:nth-of-type(3) span.text-6xl"
-        },
-        {
-          "key": "portfolio.c3.image",
-          "label": "Kartu 3 — upload foto cover",
-          "type": "image",
-          "selector": "#portfolio article:nth-of-type(3) [data-portfolio-img]",
-          "attribute": "src",
-          "uploadSlot": "portfolio-c3"
-        },
-        {
-          "key": "portfolio.c3.link",
-          "label": "Kartu 3 — link proyek",
-          "type": "text",
-          "selector": "#portfolio article:nth-of-type(3) [data-portfolio-link]",
-          "attribute": "href"
-        },
-        {
-          "key": "portfolio.c3.title",
-          "label": "Kartu 3 — judul",
-          "type": "text",
-          "selector": "#portfolio article:nth-of-type(3) .p-6 > h3"
-        },
-        {
-          "key": "portfolio.c3.desc",
-          "label": "Kartu 3 — deskripsi",
-          "type": "textarea",
-          "selector": "#portfolio article:nth-of-type(3) .p-6 > p"
-        },
-        {
-          "key": "portfolio.c4.cat1",
-          "label": "Kartu 4 — kategori 1",
-          "type": "text",
-          "selector": "#portfolio article:nth-of-type(4) .p-6 > div:first-child > span:nth-of-type(1)"
-        },
-        {
-          "key": "portfolio.c4.cat2",
-          "label": "Kartu 4 — kategori 2",
-          "type": "text",
-          "selector": "#portfolio article:nth-of-type(4) .p-6 > div:first-child > span:nth-of-type(2)"
-        },
-        {
-          "key": "portfolio.c4.cover",
-          "label": "Kartu 4 — huruf cover",
-          "type": "text",
-          "selector": "#portfolio article:nth-of-type(4) span.text-6xl"
-        },
-        {
-          "key": "portfolio.c4.image",
-          "label": "Kartu 4 — upload foto cover",
-          "type": "image",
-          "selector": "#portfolio article:nth-of-type(4) [data-portfolio-img]",
-          "attribute": "src",
-          "uploadSlot": "portfolio-c4"
-        },
-        {
-          "key": "portfolio.c4.link",
-          "label": "Kartu 4 — link proyek",
-          "type": "text",
-          "selector": "#portfolio article:nth-of-type(4) [data-portfolio-link]",
-          "attribute": "href"
-        },
-        {
-          "key": "portfolio.c4.title",
-          "label": "Kartu 4 — judul",
-          "type": "text",
-          "selector": "#portfolio article:nth-of-type(4) .p-6 > h3"
-        },
-        {
-          "key": "portfolio.c4.desc",
-          "label": "Kartu 4 — deskripsi",
-          "type": "textarea",
-          "selector": "#portfolio article:nth-of-type(4) .p-6 > p"
+          "scope": ".p-6 > p"
         }
       ]
     },
@@ -515,191 +338,45 @@
           "label": "Sub-judul",
           "type": "textarea",
           "selector": "#team p.section-subtitle"
-        },
+        }
+      ],
+      "listConfig": {
+        "container": "#team .grid",
+        "itemSelector": "article",
+        "min": 1,
+        "max": 12,
+        "label": "Anggota"
+      },
+      "itemFields": [
         {
-          "key": "team.m1.name",
-          "label": "Anggota 1 — nama",
+          "key": "name",
+          "label": "Nama",
           "type": "text",
-          "selector": "#team article:nth-of-type(1) h3"
+          "scope": "h3"
         },
         {
-          "key": "team.m1.initial",
-          "label": "Anggota 1 — inisial (2 huruf di avatar)",
+          "key": "role",
+          "label": "Role",
           "type": "text",
-          "selector": "#team article:nth-of-type(1) [data-team-initial]"
+          "scope": ".min-w-0 > p"
         },
         {
-          "key": "team.m1.role",
-          "label": "Anggota 1 — role",
+          "key": "initial",
+          "label": "Inisial (2 huruf avatar)",
           "type": "text",
-          "selector": "#team article:nth-of-type(1) .min-w-0 > p"
+          "scope": "[data-team-initial]"
         },
         {
-          "key": "team.m1.bio",
-          "label": "Anggota 1 — bio",
+          "key": "bio",
+          "label": "Bio",
           "type": "textarea",
-          "selector": "#team article:nth-of-type(1) > p"
+          "scope": "> p"
         },
         {
-          "key": "team.m1.link",
-          "label": "Anggota 1 — link portofolio (URL)",
+          "key": "link",
+          "label": "Link portofolio (URL)",
           "type": "text",
-          "selector": "#team article:nth-of-type(1) [data-team-link]",
-          "attribute": "href"
-        },
-        {
-          "key": "team.m2.name",
-          "label": "Anggota 2 — nama",
-          "type": "text",
-          "selector": "#team article:nth-of-type(2) h3"
-        },
-        {
-          "key": "team.m2.initial",
-          "label": "Anggota 2 — inisial (2 huruf di avatar)",
-          "type": "text",
-          "selector": "#team article:nth-of-type(2) [data-team-initial]"
-        },
-        {
-          "key": "team.m2.role",
-          "label": "Anggota 2 — role",
-          "type": "text",
-          "selector": "#team article:nth-of-type(2) .min-w-0 > p"
-        },
-        {
-          "key": "team.m2.bio",
-          "label": "Anggota 2 — bio",
-          "type": "textarea",
-          "selector": "#team article:nth-of-type(2) > p"
-        },
-        {
-          "key": "team.m2.link",
-          "label": "Anggota 2 — link portofolio (URL)",
-          "type": "text",
-          "selector": "#team article:nth-of-type(2) [data-team-link]",
-          "attribute": "href"
-        },
-        {
-          "key": "team.m3.name",
-          "label": "Anggota 3 — nama",
-          "type": "text",
-          "selector": "#team article:nth-of-type(3) h3"
-        },
-        {
-          "key": "team.m3.initial",
-          "label": "Anggota 3 — inisial (2 huruf di avatar)",
-          "type": "text",
-          "selector": "#team article:nth-of-type(3) [data-team-initial]"
-        },
-        {
-          "key": "team.m3.role",
-          "label": "Anggota 3 — role",
-          "type": "text",
-          "selector": "#team article:nth-of-type(3) .min-w-0 > p"
-        },
-        {
-          "key": "team.m3.bio",
-          "label": "Anggota 3 — bio",
-          "type": "textarea",
-          "selector": "#team article:nth-of-type(3) > p"
-        },
-        {
-          "key": "team.m3.link",
-          "label": "Anggota 3 — link portofolio (URL)",
-          "type": "text",
-          "selector": "#team article:nth-of-type(3) [data-team-link]",
-          "attribute": "href"
-        },
-        {
-          "key": "team.m4.name",
-          "label": "Anggota 4 — nama",
-          "type": "text",
-          "selector": "#team article:nth-of-type(4) h3"
-        },
-        {
-          "key": "team.m4.initial",
-          "label": "Anggota 4 — inisial (2 huruf di avatar)",
-          "type": "text",
-          "selector": "#team article:nth-of-type(4) [data-team-initial]"
-        },
-        {
-          "key": "team.m4.role",
-          "label": "Anggota 4 — role",
-          "type": "text",
-          "selector": "#team article:nth-of-type(4) .min-w-0 > p"
-        },
-        {
-          "key": "team.m4.bio",
-          "label": "Anggota 4 — bio",
-          "type": "textarea",
-          "selector": "#team article:nth-of-type(4) > p"
-        },
-        {
-          "key": "team.m4.link",
-          "label": "Anggota 4 — link portofolio (URL)",
-          "type": "text",
-          "selector": "#team article:nth-of-type(4) [data-team-link]",
-          "attribute": "href"
-        },
-        {
-          "key": "team.m5.name",
-          "label": "Anggota 5 — nama",
-          "type": "text",
-          "selector": "#team article:nth-of-type(5) h3"
-        },
-        {
-          "key": "team.m5.initial",
-          "label": "Anggota 5 — inisial (2 huruf di avatar)",
-          "type": "text",
-          "selector": "#team article:nth-of-type(5) [data-team-initial]"
-        },
-        {
-          "key": "team.m5.role",
-          "label": "Anggota 5 — role",
-          "type": "text",
-          "selector": "#team article:nth-of-type(5) .min-w-0 > p"
-        },
-        {
-          "key": "team.m5.bio",
-          "label": "Anggota 5 — bio",
-          "type": "textarea",
-          "selector": "#team article:nth-of-type(5) > p"
-        },
-        {
-          "key": "team.m5.link",
-          "label": "Anggota 5 — link portofolio (URL)",
-          "type": "text",
-          "selector": "#team article:nth-of-type(5) [data-team-link]",
-          "attribute": "href"
-        },
-        {
-          "key": "team.m6.name",
-          "label": "Anggota 6 — nama",
-          "type": "text",
-          "selector": "#team article:nth-of-type(6) h3"
-        },
-        {
-          "key": "team.m6.initial",
-          "label": "Anggota 6 — inisial (2 huruf di avatar)",
-          "type": "text",
-          "selector": "#team article:nth-of-type(6) [data-team-initial]"
-        },
-        {
-          "key": "team.m6.role",
-          "label": "Anggota 6 — role",
-          "type": "text",
-          "selector": "#team article:nth-of-type(6) .min-w-0 > p"
-        },
-        {
-          "key": "team.m6.bio",
-          "label": "Anggota 6 — bio",
-          "type": "textarea",
-          "selector": "#team article:nth-of-type(6) > p"
-        },
-        {
-          "key": "team.m6.link",
-          "label": "Anggota 6 — link portofolio (URL)",
-          "type": "text",
-          "selector": "#team article:nth-of-type(6) [data-team-link]",
+          "scope": "[data-team-link]",
           "attribute": "href"
         }
       ]
@@ -720,78 +397,39 @@
           "label": "Judul section",
           "type": "text",
           "selector": "#blog h2.section-title"
-        },
+        }
+      ],
+      "listConfig": {
+        "container": "#blog .grid",
+        "itemSelector": "article",
+        "min": 1,
+        "max": 12,
+        "label": "Artikel"
+      },
+      "itemFields": [
         {
-          "key": "blog.a1.cat",
-          "label": "Artikel 1 — kategori",
+          "key": "cat",
+          "label": "Kategori",
           "type": "text",
-          "selector": "#blog article:nth-of-type(1) .badge"
+          "scope": ".badge"
         },
         {
-          "key": "blog.a1.date",
-          "label": "Artikel 1 — tanggal",
+          "key": "date",
+          "label": "Tanggal",
           "type": "text",
-          "selector": "#blog article:nth-of-type(1) [data-blog-date]"
+          "scope": "[data-blog-date]"
         },
         {
-          "key": "blog.a1.title",
-          "label": "Artikel 1 — judul",
+          "key": "title",
+          "label": "Judul",
           "type": "text",
-          "selector": "#blog article:nth-of-type(1) h3"
+          "scope": "h3"
         },
         {
-          "key": "blog.a1.excerpt",
-          "label": "Artikel 1 — ringkasan",
+          "key": "excerpt",
+          "label": "Ringkasan",
           "type": "textarea",
-          "selector": "#blog article:nth-of-type(1) .p-6 > p"
-        },
-        {
-          "key": "blog.a2.cat",
-          "label": "Artikel 2 — kategori",
-          "type": "text",
-          "selector": "#blog article:nth-of-type(2) .badge"
-        },
-        {
-          "key": "blog.a2.date",
-          "label": "Artikel 2 — tanggal",
-          "type": "text",
-          "selector": "#blog article:nth-of-type(2) [data-blog-date]"
-        },
-        {
-          "key": "blog.a2.title",
-          "label": "Artikel 2 — judul",
-          "type": "text",
-          "selector": "#blog article:nth-of-type(2) h3"
-        },
-        {
-          "key": "blog.a2.excerpt",
-          "label": "Artikel 2 — ringkasan",
-          "type": "textarea",
-          "selector": "#blog article:nth-of-type(2) .p-6 > p"
-        },
-        {
-          "key": "blog.a3.cat",
-          "label": "Artikel 3 — kategori",
-          "type": "text",
-          "selector": "#blog article:nth-of-type(3) .badge"
-        },
-        {
-          "key": "blog.a3.date",
-          "label": "Artikel 3 — tanggal",
-          "type": "text",
-          "selector": "#blog article:nth-of-type(3) [data-blog-date]"
-        },
-        {
-          "key": "blog.a3.title",
-          "label": "Artikel 3 — judul",
-          "type": "text",
-          "selector": "#blog article:nth-of-type(3) h3"
-        },
-        {
-          "key": "blog.a3.excerpt",
-          "label": "Artikel 3 — ringkasan",
-          "type": "textarea",
-          "selector": "#blog article:nth-of-type(3) .p-6 > p"
+          "scope": ".p-6 > p"
         }
       ]
     },
@@ -817,60 +455,33 @@
           "label": "Sub-judul",
           "type": "textarea",
           "selector": "#pricing p.section-subtitle"
+        }
+      ],
+      "listConfig": {
+        "container": "#pricing .grid",
+        "itemSelector": "div.card, div.p-8",
+        "min": 1,
+        "max": 6,
+        "label": "Paket"
+      },
+      "itemFields": [
+        {
+          "key": "name",
+          "label": "Nama paket",
+          "type": "text",
+          "scope": "h3"
         },
         {
-          "key": "pricing.p1.name",
-          "label": "Paket 1 — nama",
+          "key": "desc",
+          "label": "Deskripsi",
           "type": "text",
-          "selector": "#pricing .grid > div:nth-child(1) h3"
+          "scope": ".mb-6 > p"
         },
         {
-          "key": "pricing.p1.desc",
-          "label": "Paket 1 — deskripsi",
+          "key": "price",
+          "label": "Harga (teks)",
           "type": "text",
-          "selector": "#pricing .grid > div:nth-child(1) .mb-6 > p"
-        },
-        {
-          "key": "pricing.p1.price",
-          "label": "Paket 1 — harga",
-          "type": "text",
-          "selector": "#pricing .grid > div:nth-child(1) .mb-8 > span:first-child"
-        },
-        {
-          "key": "pricing.p2.name",
-          "label": "Paket 2 (Pro) — nama",
-          "type": "text",
-          "selector": "#pricing .grid > div:nth-child(2) h3"
-        },
-        {
-          "key": "pricing.p2.desc",
-          "label": "Paket 2 — deskripsi",
-          "type": "text",
-          "selector": "#pricing .grid > div:nth-child(2) .mb-6 > p"
-        },
-        {
-          "key": "pricing.p2.price",
-          "label": "Paket 2 — harga",
-          "type": "text",
-          "selector": "#pricing .grid > div:nth-child(2) .mb-8 > span:first-child"
-        },
-        {
-          "key": "pricing.p3.name",
-          "label": "Paket 3 — nama",
-          "type": "text",
-          "selector": "#pricing .grid > div:nth-child(3) h3"
-        },
-        {
-          "key": "pricing.p3.desc",
-          "label": "Paket 3 — deskripsi",
-          "type": "text",
-          "selector": "#pricing .grid > div:nth-child(3) .mb-6 > p"
-        },
-        {
-          "key": "pricing.p3.price",
-          "label": "Paket 3 — harga",
-          "type": "text",
-          "selector": "#pricing .grid > div:nth-child(3) .mb-8 > span:first-child"
+          "scope": ".mb-8 > span:first-child"
         }
       ]
     },
@@ -883,66 +494,27 @@
           "label": "Judul section",
           "type": "text",
           "selector": "#faq h2.section-title"
-        },
+        }
+      ],
+      "listConfig": {
+        "container": "#faq .space-y-2",
+        "itemSelector": "div.card",
+        "min": 1,
+        "max": 20,
+        "label": "Pertanyaan"
+      },
+      "itemFields": [
         {
-          "key": "faq.q1",
-          "label": "Q1 — pertanyaan",
+          "key": "q",
+          "label": "Pertanyaan",
           "type": "text",
-          "selector": "#faq .space-y-2 > div:nth-child(1) button > span:first-child"
+          "scope": "button > span:first-child"
         },
         {
-          "key": "faq.a1",
-          "label": "Q1 — jawaban",
+          "key": "a",
+          "label": "Jawaban",
           "type": "textarea",
-          "selector": "#faq .space-y-2 > div:nth-child(1) > div:last-child"
-        },
-        {
-          "key": "faq.q2",
-          "label": "Q2 — pertanyaan",
-          "type": "text",
-          "selector": "#faq .space-y-2 > div:nth-child(2) button > span:first-child"
-        },
-        {
-          "key": "faq.a2",
-          "label": "Q2 — jawaban",
-          "type": "textarea",
-          "selector": "#faq .space-y-2 > div:nth-child(2) > div:last-child"
-        },
-        {
-          "key": "faq.q3",
-          "label": "Q3 — pertanyaan",
-          "type": "text",
-          "selector": "#faq .space-y-2 > div:nth-child(3) button > span:first-child"
-        },
-        {
-          "key": "faq.a3",
-          "label": "Q3 — jawaban",
-          "type": "textarea",
-          "selector": "#faq .space-y-2 > div:nth-child(3) > div:last-child"
-        },
-        {
-          "key": "faq.q4",
-          "label": "Q4 — pertanyaan",
-          "type": "text",
-          "selector": "#faq .space-y-2 > div:nth-child(4) button > span:first-child"
-        },
-        {
-          "key": "faq.a4",
-          "label": "Q4 — jawaban",
-          "type": "textarea",
-          "selector": "#faq .space-y-2 > div:nth-child(4) > div:last-child"
-        },
-        {
-          "key": "faq.q5",
-          "label": "Q5 — pertanyaan",
-          "type": "text",
-          "selector": "#faq .space-y-2 > div:nth-child(5) button > span:first-child"
-        },
-        {
-          "key": "faq.a5",
-          "label": "Q5 — jawaban",
-          "type": "textarea",
-          "selector": "#faq .space-y-2 > div:nth-child(5) > div:last-child"
+          "scope": "> div:last-child"
         }
       ]
     },
