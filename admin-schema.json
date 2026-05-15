@@ -60,25 +60,33 @@
 
         { "key": "portfolio.c1.cat1",  "label": "Kartu 1 — kategori 1 (badge kiri)",  "type": "text", "selector": "#portfolio article:nth-of-type(1) .p-6 > div:first-child > span:nth-of-type(1)" },
         { "key": "portfolio.c1.cat2",  "label": "Kartu 1 — kategori 2 (badge kanan)", "type": "text", "selector": "#portfolio article:nth-of-type(1) .p-6 > div:first-child > span:nth-of-type(2)" },
-        { "key": "portfolio.c1.cover", "label": "Kartu 1 — huruf cover (placeholder)","type": "text", "selector": "#portfolio article:nth-of-type(1) span.text-6xl" },
+        { "key": "portfolio.c1.cover", "label": "Kartu 1 — huruf cover (fallback kalau image kosong)","type": "text", "selector": "#portfolio article:nth-of-type(1) span.text-6xl" },
+        { "key": "portfolio.c1.image", "label": "Kartu 1 — upload foto cover (PNG/JPG, max 2 MB)", "type": "image", "selector": "#portfolio article:nth-of-type(1) [data-portfolio-img]", "attribute": "src", "uploadSlot": "portfolio-c1" },
+        { "key": "portfolio.c1.link",  "label": "Kartu 1 — link proyek (URL)",        "type": "text", "selector": "#portfolio article:nth-of-type(1) [data-portfolio-link]", "attribute": "href" },
         { "key": "portfolio.c1.title", "label": "Kartu 1 — judul proyek",             "type": "text", "selector": "#portfolio article:nth-of-type(1) .p-6 > h3" },
         { "key": "portfolio.c1.desc",  "label": "Kartu 1 — deskripsi proyek",         "type": "textarea", "selector": "#portfolio article:nth-of-type(1) .p-6 > p" },
 
         { "key": "portfolio.c2.cat1",  "label": "Kartu 2 — kategori 1",  "type": "text", "selector": "#portfolio article:nth-of-type(2) .p-6 > div:first-child > span:nth-of-type(1)" },
         { "key": "portfolio.c2.cat2",  "label": "Kartu 2 — kategori 2",  "type": "text", "selector": "#portfolio article:nth-of-type(2) .p-6 > div:first-child > span:nth-of-type(2)" },
         { "key": "portfolio.c2.cover", "label": "Kartu 2 — huruf cover", "type": "text", "selector": "#portfolio article:nth-of-type(2) span.text-6xl" },
+        { "key": "portfolio.c2.image", "label": "Kartu 2 — upload foto cover", "type": "image", "selector": "#portfolio article:nth-of-type(2) [data-portfolio-img]", "attribute": "src", "uploadSlot": "portfolio-c2" },
+        { "key": "portfolio.c2.link",  "label": "Kartu 2 — link proyek",  "type": "text", "selector": "#portfolio article:nth-of-type(2) [data-portfolio-link]", "attribute": "href" },
         { "key": "portfolio.c2.title", "label": "Kartu 2 — judul",       "type": "text", "selector": "#portfolio article:nth-of-type(2) .p-6 > h3" },
         { "key": "portfolio.c2.desc",  "label": "Kartu 2 — deskripsi",   "type": "textarea", "selector": "#portfolio article:nth-of-type(2) .p-6 > p" },
 
         { "key": "portfolio.c3.cat1",  "label": "Kartu 3 — kategori 1",  "type": "text", "selector": "#portfolio article:nth-of-type(3) .p-6 > div:first-child > span:nth-of-type(1)" },
         { "key": "portfolio.c3.cat2",  "label": "Kartu 3 — kategori 2",  "type": "text", "selector": "#portfolio article:nth-of-type(3) .p-6 > div:first-child > span:nth-of-type(2)" },
         { "key": "portfolio.c3.cover", "label": "Kartu 3 — huruf cover", "type": "text", "selector": "#portfolio article:nth-of-type(3) span.text-6xl" },
+        { "key": "portfolio.c3.image", "label": "Kartu 3 — upload foto cover", "type": "image", "selector": "#portfolio article:nth-of-type(3) [data-portfolio-img]", "attribute": "src", "uploadSlot": "portfolio-c3" },
+        { "key": "portfolio.c3.link",  "label": "Kartu 3 — link proyek",  "type": "text", "selector": "#portfolio article:nth-of-type(3) [data-portfolio-link]", "attribute": "href" },
         { "key": "portfolio.c3.title", "label": "Kartu 3 — judul",       "type": "text", "selector": "#portfolio article:nth-of-type(3) .p-6 > h3" },
         { "key": "portfolio.c3.desc",  "label": "Kartu 3 — deskripsi",   "type": "textarea", "selector": "#portfolio article:nth-of-type(3) .p-6 > p" },
 
         { "key": "portfolio.c4.cat1",  "label": "Kartu 4 — kategori 1",  "type": "text", "selector": "#portfolio article:nth-of-type(4) .p-6 > div:first-child > span:nth-of-type(1)" },
         { "key": "portfolio.c4.cat2",  "label": "Kartu 4 — kategori 2",  "type": "text", "selector": "#portfolio article:nth-of-type(4) .p-6 > div:first-child > span:nth-of-type(2)" },
         { "key": "portfolio.c4.cover", "label": "Kartu 4 — huruf cover", "type": "text", "selector": "#portfolio article:nth-of-type(4) span.text-6xl" },
+        { "key": "portfolio.c4.image", "label": "Kartu 4 — upload foto cover", "type": "image", "selector": "#portfolio article:nth-of-type(4) [data-portfolio-img]", "attribute": "src", "uploadSlot": "portfolio-c4" },
+        { "key": "portfolio.c4.link",  "label": "Kartu 4 — link proyek",  "type": "text", "selector": "#portfolio article:nth-of-type(4) [data-portfolio-link]", "attribute": "href" },
         { "key": "portfolio.c4.title", "label": "Kartu 4 — judul",       "type": "text", "selector": "#portfolio article:nth-of-type(4) .p-6 > h3" },
         { "key": "portfolio.c4.desc",  "label": "Kartu 4 — deskripsi",   "type": "textarea", "selector": "#portfolio article:nth-of-type(4) .p-6 > p" }
       ]
@@ -203,6 +211,18 @@
         { "key": "contact.eyebrow",  "label": "Label \"Hubungi kami\"", "type": "text",     "selector": "#contact-form .section-label", "textOnly": true },
         { "key": "contact.title",    "label": "Judul section",          "type": "text",     "selector": "#contact-form h2.section-title" },
         { "key": "contact.subtitle", "label": "Sub-judul",              "type": "textarea", "selector": "#contact-form p.section-subtitle" }
+      ]
+    },
+    {
+      "id": "contact-social",
+      "title": "Kontak & Social Media",
+      "fields": [
+        { "key": "contact.whatsapp", "label": "URL WhatsApp lengkap (mis. https://wa.me/6281234567890) — sync di 3 tempat", "type": "text", "selector": "[data-wa-link]", "attribute": "href", "multi": true },
+        { "key": "contact.email-href", "label": "Email link (mis. mailto:hello@yourdomain.com)", "type": "text", "selector": "[data-contact-email]", "attribute": "href" },
+        { "key": "contact.email-text", "label": "Email tampilan (yang terlihat di footer)", "type": "text", "selector": "[data-contact-email]" },
+        { "key": "social.github",    "label": "GitHub URL (mis. https://github.com/username)",       "type": "text", "selector": "[data-social-github]",    "attribute": "href" },
+        { "key": "social.instagram", "label": "Instagram URL (mis. https://instagram.com/username)", "type": "text", "selector": "[data-social-instagram]", "attribute": "href" },
+        { "key": "social.linkedin",  "label": "LinkedIn URL (mis. https://linkedin.com/in/username)","type": "text", "selector": "[data-social-linkedin]",  "attribute": "href" }
       ]
     },
     {
