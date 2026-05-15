@@ -51,6 +51,38 @@
       ]
     },
     {
+      "id": "portfolio",
+      "title": "Portfolio / Proyek Pilihan (4 kartu)",
+      "fields": [
+        { "key": "portfolio.eyebrow", "label": "Label kecil \"Karya kami\"", "type": "text", "selector": "#portfolio .section-label", "textOnly": true },
+        { "key": "portfolio.title",   "label": "Judul section",              "type": "text", "selector": "#portfolio h2.section-title" },
+
+        { "key": "portfolio.c1.cat1",  "label": "Kartu 1 — kategori 1 (badge kiri)",  "type": "text", "selector": "#portfolio article:nth-of-type(1) .p-6 > div:first-child > span:nth-of-type(1)" },
+        { "key": "portfolio.c1.cat2",  "label": "Kartu 1 — kategori 2 (badge kanan)", "type": "text", "selector": "#portfolio article:nth-of-type(1) .p-6 > div:first-child > span:nth-of-type(2)" },
+        { "key": "portfolio.c1.cover", "label": "Kartu 1 — huruf cover (placeholder)","type": "text", "selector": "#portfolio article:nth-of-type(1) span.text-6xl" },
+        { "key": "portfolio.c1.title", "label": "Kartu 1 — judul proyek",             "type": "text", "selector": "#portfolio article:nth-of-type(1) .p-6 > h3" },
+        { "key": "portfolio.c1.desc",  "label": "Kartu 1 — deskripsi proyek",         "type": "textarea", "selector": "#portfolio article:nth-of-type(1) .p-6 > p" },
+
+        { "key": "portfolio.c2.cat1",  "label": "Kartu 2 — kategori 1",  "type": "text", "selector": "#portfolio article:nth-of-type(2) .p-6 > div:first-child > span:nth-of-type(1)" },
+        { "key": "portfolio.c2.cat2",  "label": "Kartu 2 — kategori 2",  "type": "text", "selector": "#portfolio article:nth-of-type(2) .p-6 > div:first-child > span:nth-of-type(2)" },
+        { "key": "portfolio.c2.cover", "label": "Kartu 2 — huruf cover", "type": "text", "selector": "#portfolio article:nth-of-type(2) span.text-6xl" },
+        { "key": "portfolio.c2.title", "label": "Kartu 2 — judul",       "type": "text", "selector": "#portfolio article:nth-of-type(2) .p-6 > h3" },
+        { "key": "portfolio.c2.desc",  "label": "Kartu 2 — deskripsi",   "type": "textarea", "selector": "#portfolio article:nth-of-type(2) .p-6 > p" },
+
+        { "key": "portfolio.c3.cat1",  "label": "Kartu 3 — kategori 1",  "type": "text", "selector": "#portfolio article:nth-of-type(3) .p-6 > div:first-child > span:nth-of-type(1)" },
+        { "key": "portfolio.c3.cat2",  "label": "Kartu 3 — kategori 2",  "type": "text", "selector": "#portfolio article:nth-of-type(3) .p-6 > div:first-child > span:nth-of-type(2)" },
+        { "key": "portfolio.c3.cover", "label": "Kartu 3 — huruf cover", "type": "text", "selector": "#portfolio article:nth-of-type(3) span.text-6xl" },
+        { "key": "portfolio.c3.title", "label": "Kartu 3 — judul",       "type": "text", "selector": "#portfolio article:nth-of-type(3) .p-6 > h3" },
+        { "key": "portfolio.c3.desc",  "label": "Kartu 3 — deskripsi",   "type": "textarea", "selector": "#portfolio article:nth-of-type(3) .p-6 > p" },
+
+        { "key": "portfolio.c4.cat1",  "label": "Kartu 4 — kategori 1",  "type": "text", "selector": "#portfolio article:nth-of-type(4) .p-6 > div:first-child > span:nth-of-type(1)" },
+        { "key": "portfolio.c4.cat2",  "label": "Kartu 4 — kategori 2",  "type": "text", "selector": "#portfolio article:nth-of-type(4) .p-6 > div:first-child > span:nth-of-type(2)" },
+        { "key": "portfolio.c4.cover", "label": "Kartu 4 — huruf cover", "type": "text", "selector": "#portfolio article:nth-of-type(4) span.text-6xl" },
+        { "key": "portfolio.c4.title", "label": "Kartu 4 — judul",       "type": "text", "selector": "#portfolio article:nth-of-type(4) .p-6 > h3" },
+        { "key": "portfolio.c4.desc",  "label": "Kartu 4 — deskripsi",   "type": "textarea", "selector": "#portfolio article:nth-of-type(4) .p-6 > p" }
+      ]
+    },
+    {
       "id": "about",
       "title": "About / Process (Cara kerja)",
       "fields": [
