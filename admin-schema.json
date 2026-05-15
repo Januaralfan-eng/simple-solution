@@ -2,6 +2,15 @@
   "$comment": "Schema of editable text fields. Each field maps to a CSS selector inside preview-home.html. type=text|textarea. Selectors must be unique-targeting.",
   "sections": [
     {
+      "id": "brand",
+      "title": "Brand & SEO (global)",
+      "fields": [
+        { "key": "brand.name",   "label": "Nama brand (sync di navbar, footer, copyright)", "type": "text", "selector": "[data-brand-name]",   "multi": true },
+        { "key": "brand.letter", "label": "Huruf logo (kotak hitam/putih) — Phase 2 ganti ke image upload", "type": "text", "selector": "[data-brand-letter]", "multi": true },
+        { "key": "page.title",   "label": "Page title (tag <title>, untuk SEO + browser tab)", "type": "text", "selector": "head > title" }
+      ]
+    },
+    {
       "id": "hero",
       "title": "Hero (atas halaman)",
       "fields": [

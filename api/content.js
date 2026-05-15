@@ -14,7 +14,9 @@ export default async function handler(req, res) {
         for (const section of schema.sections) {
             const out = { id: section.id, title: section.title, fields: [] };
             for (const f of section.fields) {
-                const $el = $(f.selector);
+                let $el = $(f.selector);
+                // For multi-target fields, read value from the first match
+                if (f.multi && $el.length > 0) $el = $el.first();
                 let value = '';
                 if ($el.length === 0)        value = '';
                 else if (f.html)             value = $el.html() ?? '';
@@ -22,8 +24,8 @@ export default async function handler(req, res) {
                 else                         value = $el.text();
                 out.fields.push({
                     key: f.key, label: f.label, type: f.type,
-                    html: !!f.html, textOnly: !!f.textOnly,
-                    found: $el.length > 0, selector: f.selector,
+                    html: !!f.html, textOnly: !!f.textOnly, multi: !!f.multi,
+                    found: $(f.selector).length > 0, matches: $(f.selector).length, selector: f.selector,
                     value: value.trim(),
                 });
             }

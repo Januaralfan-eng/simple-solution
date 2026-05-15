@@ -26,20 +26,28 @@ export default async function handler(req, res) {
             if (!f) { skipped.push({ key, reason: 'unknown key' }); continue; }
             const $el = $(f.selector);
             if ($el.length === 0) { skipped.push({ key, reason: 'selector matched 0 elements' }); continue; }
-            if ($el.length > 1)   { skipped.push({ key, reason: `selector matched ${$el.length} elements` }); continue; }
+            if ($el.length > 1 && !f.multi) { skipped.push({ key, reason: `selector matched ${$el.length} elements (use multi:true to apply to all)` }); continue; }
 
-            if (f.html) {
-                $el.html(String(newValue));
-            } else if (f.textOnly) {
-                const directTextNodes = $el.contents().filter((_, n) => n.type === 'text').toArray();
-                if (directTextNodes.length === 0) {
-                    $el.prepend(' ' + String(newValue) + ' ');
+            const applyToOne = ($one) => {
+                if (f.html) {
+                    $one.html(String(newValue));
+                } else if (f.textOnly) {
+                    const directTextNodes = $one.contents().filter((_, n) => n.type === 'text').toArray();
+                    if (directTextNodes.length === 0) {
+                        $one.prepend(' ' + String(newValue) + ' ');
+                    } else {
+                        directTextNodes[0].data = ' ' + String(newValue) + ' ';
+                        for (let i = 1; i < directTextNodes.length; i++) directTextNodes[i].data = '';
+                    }
                 } else {
-                    directTextNodes[0].data = ' ' + String(newValue) + ' ';
-                    for (let i = 1; i < directTextNodes.length; i++) directTextNodes[i].data = '';
+                    $one.text(String(newValue));
                 }
+            };
+
+            if (f.multi) {
+                $el.each((_, el) => applyToOne($(el)));
             } else {
-                $el.text(String(newValue));
+                applyToOne($el);
             }
             applied.push(key);
         }
