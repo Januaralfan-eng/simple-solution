@@ -31,3 +31,10 @@ Thumbs.db
 # OS / misc
 *.log
 .history/
+
+# Local admin tool artifacts
+preview-home.html.bak
+_*.json
+admin-config.json
+
+.vercel

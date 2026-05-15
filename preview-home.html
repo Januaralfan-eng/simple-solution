@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="id" class="scroll-smooth antialiased" x-data="{}">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!DOCTYPE html><html lang="id" class="scroll-smooth antialiased" x-data="{}"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Creative Agency — Kami Bangun Pengalaman Digital</title>
-    <meta name="description" content="Agensi kreatif premium yang fokus pada pengembangan web, desain UI/UX, dan strategi digital." />
+    <meta name="description" content="Agensi kreatif premium yang fokus pada pengembangan web, desain UI/UX, dan strategi digital.">
 
     <script>
         (function () {
@@ -158,19 +156,13 @@
         .animate-delay-600 { animation-delay: 600ms; }
         [x-cloak] { display: none !important; }
     </style>
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script defer="" src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
 <body class="min-h-screen antialiased">
 
 <!-- NAVBAR -->
-<header
-    class="fixed top-0 left-0 right-0 z-40 navbar-glass transition-all duration-300"
-    x-data="{ scrolled: false, hidden: false, open: false, dark: document.documentElement.classList.contains('dark'),
-              toggle() { this.dark = !this.dark; document.documentElement.classList.toggle('dark', this.dark); localStorage.setItem('theme', this.dark ? 'dark' : 'light'); } }"
-    x-init="window.addEventListener('scroll', () => { scrolled = window.scrollY > 16 })"
-    :class="{ 'shadow-sm': scrolled }"
-    style="height: var(--navbar-height);"
->
+<header class="fixed top-0 left-0 right-0 z-40 navbar-glass transition-all duration-300" x-data="{ scrolled: false, hidden: false, open: false, dark: document.documentElement.classList.contains('dark'),
+              toggle() { this.dark = !this.dark; document.documentElement.classList.toggle('dark', this.dark); localStorage.setItem('theme', this.dark ? 'dark' : 'light'); } }" x-init="window.addEventListener('scroll', () => { scrolled = window.scrollY > 16 })" :class="{ 'shadow-sm': scrolled }" style="height: var(--navbar-height);">
     <div class="container-agency h-full flex items-center justify-between">
         <a href="#" class="flex items-center gap-2.5 group" aria-label="Creative Agency Home">
             <div class="w-8 h-8 rounded-lg bg-black dark:bg-white flex items-center justify-center transition-transform group-hover:scale-95">
@@ -180,49 +172,45 @@
         </a>
 
         <nav class="hidden md:flex items-center gap-1">
-            <a href="#services"  class="btn-ghost text-sm">Layanan</a>
+            <a href="#services" class="btn-ghost text-sm">Layanan</a>
             <a href="#portfolio" class="btn-ghost text-sm">Portofolio</a>
-            <a href="#team"      class="btn-ghost text-sm">Tim</a>
-            <a href="#blog"      class="btn-ghost text-sm">Blog</a>
-            <a href="#about"     class="btn-ghost text-sm">Tentang</a>
+            <a href="#team" class="btn-ghost text-sm">Tim</a>
+            <a href="#blog" class="btn-ghost text-sm">Blog</a>
+            <a href="#about" class="btn-ghost text-sm">Tentang</a>
         </nav>
 
         <div class="flex items-center gap-2">
-            <button @click="toggle()" class="w-9 h-9 rounded-lg flex items-center justify-center transition-all hover:bg-black/5 dark:hover:bg-white/10"
-                    :aria-label="dark ? 'Light mode' : 'Dark mode'">
+            <button @click="toggle()" class="w-9 h-9 rounded-lg flex items-center justify-center transition-all hover:bg-black/5 dark:hover:bg-white/10" :aria-label="dark ? 'Light mode' : 'Dark mode'">
                 <svg x-show="!dark" class="w-4 h-4 text-gray-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+                    <circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path>
                 </svg>
-                <svg x-show="dark" x-cloak class="w-4 h-4 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                <svg x-show="dark" x-cloak="" class="w-4 h-4 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                 </svg>
             </button>
 
             <a href="#contact-form" class="hidden md:inline-flex btn-primary text-sm">
                 Hubungi Kami
-                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7v10"></path></svg>
             </a>
 
-            <button @click="open = !open" class="md:hidden w-9 h-9 rounded-lg flex items-center justify-center hover:bg-black/5 dark:hover:bg-white/10"
-                    :aria-expanded="open" aria-label="Toggle menu">
+            <button @click="open = !open" class="md:hidden w-9 h-9 rounded-lg flex items-center justify-center hover:bg-black/5 dark:hover:bg-white/10" :aria-expanded="open" aria-label="Toggle menu">
                 <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path x-show="!open" d="M4 6h16M4 12h16M4 18h16"/>
-                    <path x-show="open" x-cloak d="M18 6L6 18M6 6l12 12"/>
+                    <path x-show="!open" d="M4 6h16M4 12h16M4 18h16"></path>
+                    <path x-show="open" x-cloak="" d="M18 6L6 18M6 6l12 12"></path>
                 </svg>
             </button>
         </div>
     </div>
 
-    <div x-show="open" x-cloak x-transition.opacity
-         class="md:hidden absolute top-full left-0 right-0 navbar-glass border-t border-black/5 dark:border-white/5 pb-4"
-         @click.outside="open = false">
+    <div x-show="open" x-cloak="" x-transition.opacity="" class="md:hidden absolute top-full left-0 right-0 navbar-glass border-t border-black/5 dark:border-white/5 pb-4" @click.outside="open = false">
         <nav class="container-agency pt-4 flex flex-col gap-1">
-            <a href="#services"  @click="open=false" class="px-4 py-2.5 rounded-lg text-sm font-medium text-gray-600 dark:text-gray-400 hover:bg-black/5 dark:hover:bg-white/10">Layanan</a>
+            <a href="#services" @click="open=false" class="px-4 py-2.5 rounded-lg text-sm font-medium text-gray-600 dark:text-gray-400 hover:bg-black/5 dark:hover:bg-white/10">Layanan</a>
             <a href="#portfolio" @click="open=false" class="px-4 py-2.5 rounded-lg text-sm font-medium text-gray-600 dark:text-gray-400 hover:bg-black/5 dark:hover:bg-white/10">Portofolio</a>
-            <a href="#team"      @click="open=false" class="px-4 py-2.5 rounded-lg text-sm font-medium text-gray-600 dark:text-gray-400 hover:bg-black/5 dark:hover:bg-white/10">Tim</a>
-            <a href="#blog"      @click="open=false" class="px-4 py-2.5 rounded-lg text-sm font-medium text-gray-600 dark:text-gray-400 hover:bg-black/5 dark:hover:bg-white/10">Blog</a>
-            <a href="#about"     @click="open=false" class="px-4 py-2.5 rounded-lg text-sm font-medium text-gray-600 dark:text-gray-400 hover:bg-black/5 dark:hover:bg-white/10">Tentang</a>
-            <a href="#contact-form"   @click="open=false" class="px-4 py-2.5 rounded-lg text-sm font-medium text-gray-600 dark:text-gray-400 hover:bg-black/5 dark:hover:bg-white/10">Kontak</a>
+            <a href="#team" @click="open=false" class="px-4 py-2.5 rounded-lg text-sm font-medium text-gray-600 dark:text-gray-400 hover:bg-black/5 dark:hover:bg-white/10">Tim</a>
+            <a href="#blog" @click="open=false" class="px-4 py-2.5 rounded-lg text-sm font-medium text-gray-600 dark:text-gray-400 hover:bg-black/5 dark:hover:bg-white/10">Blog</a>
+            <a href="#about" @click="open=false" class="px-4 py-2.5 rounded-lg text-sm font-medium text-gray-600 dark:text-gray-400 hover:bg-black/5 dark:hover:bg-white/10">Tentang</a>
+            <a href="#contact-form" @click="open=false" class="px-4 py-2.5 rounded-lg text-sm font-medium text-gray-600 dark:text-gray-400 hover:bg-black/5 dark:hover:bg-white/10">Kontak</a>
         </nav>
     </div>
 </header>
@@ -236,16 +224,11 @@
         <div class="absolute bottom-1/4 -right-20 w-[400px] h-[400px] rounded-full bg-black/5 dark:bg-white/5 blur-3xl pointer-events-none animate-pulse-slow animate-delay-300"></div>
 
         <div class="container-agency relative z-10 py-24 text-center">
-            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-black/10 dark:border-white/10 text-xs font-medium text-gray-500 dark:text-gray-400 mb-8 bg-white/60 dark:bg-black/60 backdrop-blur-sm animate-fade-up">
-                <span class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
-                Tersedia untuk proyek baru
-            </div>
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-black/10 dark:border-white/10 text-xs font-medium text-gray-500 dark:text-gray-400 mb-8 bg-white/60 dark:bg-black/60 backdrop-blur-sm animate-fade-up">Tersedia untuk proyek baru</div>
 
-            <h1 class="section-title text-5xl md:text-7xl lg:text-8xl mb-6 text-balance animate-fade-up animate-delay-100">
-                Kami merancang<br>
+            <h1 class="section-title text-5xl md:text-7xl lg:text-8xl mb-6 text-balance animate-fade-up animate-delay-100">Kami merancang<br>
                 <span class="relative inline-block"><span class="relative z-10">pengalaman digital</span></span><br>
-                yang berarti.
-            </h1>
+                yang berarti.</h1>
 
             <p class="section-subtitle mx-auto mb-10 animate-fade-up animate-delay-200">
                 Agensi kreatif premium. Kami mendesain dan membangun aplikasi web yang cepat,
@@ -253,10 +236,7 @@
             </p>
 
             <div class="flex flex-col sm:flex-row items-center justify-center gap-3 animate-fade-up animate-delay-300">
-                <a href="#portfolio" class="btn-primary px-8 py-3.5 text-sm">
-                    Lihat Karya Kami
-                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
-                </a>
+                <a href="#portfolio" class="btn-primary px-8 py-3.5 text-sm"> Lihat Karya Kami <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7v10"></path></svg></a>
                 <a href="#contact-form" class="btn-secondary px-8 py-3.5 text-sm">Mulai Proyek</a>
             </div>
 
@@ -302,73 +282,73 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 <div class="card p-8 group">
                     <div class="w-10 h-10 rounded-xl bg-black/5 dark:bg-white/5 flex items-center justify-center mb-6 text-black dark:text-white group-hover:bg-black group-hover:text-white dark:group-hover:bg-white dark:group-hover:text-black transition-all duration-300">
-                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>
+                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"></path></svg>
                     </div>
                     <h3 class="font-display font-semibold text-xl mb-3 text-black dark:text-white">Pengembangan Web</h3>
                     <p class="text-sm leading-relaxed text-gray-500 dark:text-gray-400 mb-6">Situs web yang cepat, aksesibel, dan SEO-first dibangun dengan Laravel, HTMX, dan AlpineJS.</p>
                     <a href="#" class="inline-flex items-center gap-1.5 text-sm font-medium text-black dark:text-white group-hover:gap-2.5 transition-all">
                         Selengkapnya
-                        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
                     </a>
                 </div>
 
                 <div class="card p-8 group">
                     <div class="w-10 h-10 rounded-xl bg-black/5 dark:bg-white/5 flex items-center justify-center mb-6 text-black dark:text-white group-hover:bg-black group-hover:text-white dark:group-hover:bg-white dark:group-hover:text-black transition-all duration-300">
-                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="13.5" cy="6.5" r="2.5"/><circle cx="19" cy="13" r="2"/><circle cx="6" cy="12" r="3"/><circle cx="10" cy="20" r="3"/></svg>
+                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="13.5" cy="6.5" r="2.5"></circle><circle cx="19" cy="13" r="2"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="10" cy="20" r="3"></circle></svg>
                     </div>
                     <h3 class="font-display font-semibold text-xl mb-3 text-black dark:text-white">Desain UI/UX</h3>
                     <p class="text-sm leading-relaxed text-gray-500 dark:text-gray-400 mb-6">Desain pixel-perfect dan sesuai brand yang mengubah pengunjung pertama menjadi pelanggan tetap.</p>
                     <a href="#" class="inline-flex items-center gap-1.5 text-sm font-medium text-black dark:text-white group-hover:gap-2.5 transition-all">
                         Selengkapnya
-                        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
                     </a>
                 </div>
 
                 <div class="card p-8 group">
                     <div class="w-10 h-10 rounded-xl bg-black/5 dark:bg-white/5 flex items-center justify-center mb-6 text-black dark:text-white group-hover:bg-black group-hover:text-white dark:group-hover:bg-white dark:group-hover:text-black transition-all duration-300">
-                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
                     </div>
                     <h3 class="font-display font-semibold text-xl mb-3 text-black dark:text-white">Identitas Brand</h3>
                     <p class="text-sm leading-relaxed text-gray-500 dark:text-gray-400 mb-6">Sistem logo, tipografi, dan palet warna yang membuat brand Anda mudah dikenali di mana saja.</p>
                     <a href="#" class="inline-flex items-center gap-1.5 text-sm font-medium text-black dark:text-white group-hover:gap-2.5 transition-all">
                         Selengkapnya
-                        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
                     </a>
                 </div>
 
                 <div class="card p-8 group">
                     <div class="w-10 h-10 rounded-xl bg-black/5 dark:bg-white/5 flex items-center justify-center mb-6 text-black dark:text-white group-hover:bg-black group-hover:text-white dark:group-hover:bg-white dark:group-hover:text-black transition-all duration-300">
-                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><path d="M21 21l-4.35-4.35"></path></svg>
                     </div>
                     <h3 class="font-display font-semibold text-xl mb-3 text-black dark:text-white">SEO &amp; Konten</h3>
                     <p class="text-sm leading-relaxed text-gray-500 dark:text-gray-400 mb-6">SEO on-page, schema markup, dan strategi konten yang mendatangkan trafik organik berkualitas.</p>
                     <a href="#" class="inline-flex items-center gap-1.5 text-sm font-medium text-black dark:text-white group-hover:gap-2.5 transition-all">
                         Selengkapnya
-                        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
                     </a>
                 </div>
 
                 <div class="card p-8 group">
                     <div class="w-10 h-10 rounded-xl bg-black/5 dark:bg-white/5 flex items-center justify-center mb-6 text-black dark:text-white group-hover:bg-black group-hover:text-white dark:group-hover:bg-white dark:group-hover:text-black transition-all duration-300">
-                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18v18H3zM9 9h6v6H9z"/></svg>
+                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18v18H3zM9 9h6v6H9z"></path></svg>
                     </div>
                     <h3 class="font-display font-semibold text-xl mb-3 text-black dark:text-white">Strategi Digital</h3>
                     <p class="text-sm leading-relaxed text-gray-500 dark:text-gray-400 mb-6">Roadmap dan strategi produk yang selaras dengan target bisnis yang terukur.</p>
                     <a href="#" class="inline-flex items-center gap-1.5 text-sm font-medium text-black dark:text-white group-hover:gap-2.5 transition-all">
                         Selengkapnya
-                        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
                     </a>
                 </div>
 
                 <div class="card p-8 group">
                     <div class="w-10 h-10 rounded-xl bg-black/5 dark:bg-white/5 flex items-center justify-center mb-6 text-black dark:text-white group-hover:bg-black group-hover:text-white dark:group-hover:bg-white dark:group-hover:bg-white dark:group-hover:text-black transition-all duration-300">
-                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/></svg>
+                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"></path></svg>
                     </div>
                     <h3 class="font-display font-semibold text-xl mb-3 text-black dark:text-white">Pemeliharaan</h3>
                     <p class="text-sm leading-relaxed text-gray-500 dark:text-gray-400 mb-6">Dukungan berkelanjutan, audit performa, dan rilis fitur dengan ritme yang konsisten.</p>
                     <a href="#" class="inline-flex items-center gap-1.5 text-sm font-medium text-black dark:text-white group-hover:gap-2.5 transition-all">
                         Selengkapnya
-                        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
                     </a>
                 </div>
             </div>
@@ -385,7 +365,7 @@
                 </div>
                 <a href="#" class="btn-secondary self-start md:self-auto">
                     Lihat Semua
-                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
                 </a>
             </div>
 
@@ -414,11 +394,11 @@
                         <div class="flex items-center justify-between pt-4 border-t border-[var(--color-border)]">
                             <div class="flex items-center gap-4 text-xs text-gray-400 dark:text-gray-600">
                                 <span class="flex items-center gap-1">
-                                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
                                     12,408
                                 </span>
                                 <span class="flex items-center gap-1">
-                                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
                                     482
                                 </span>
                             </div>
@@ -448,11 +428,11 @@
                         <div class="flex items-center justify-between pt-4 border-t border-[var(--color-border)]">
                             <div class="flex items-center gap-4 text-xs text-gray-400 dark:text-gray-600">
                                 <span class="flex items-center gap-1">
-                                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
                                     8,720
                                 </span>
                                 <span class="flex items-center gap-1">
-                                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
                                     341
                                 </span>
                             </div>
@@ -479,11 +459,11 @@
                         <div class="flex items-center justify-between pt-4 border-t border-[var(--color-border)]">
                             <div class="flex items-center gap-4 text-xs text-gray-400 dark:text-gray-600">
                                 <span class="flex items-center gap-1">
-                                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
                                     5,142
                                 </span>
                                 <span class="flex items-center gap-1">
-                                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
                                     198
                                 </span>
                             </div>
@@ -511,11 +491,11 @@
                         <div class="flex items-center justify-between pt-4 border-t border-[var(--color-border)]">
                             <div class="flex items-center gap-4 text-xs text-gray-400 dark:text-gray-600">
                                 <span class="flex items-center gap-1">
-                                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
                                     21,003
                                 </span>
                                 <span class="flex items-center gap-1">
-                                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
                                     784
                                 </span>
                             </div>
@@ -630,11 +610,11 @@
                             <p class="text-xs text-gray-500 dark:text-gray-400">Founder · Backend Lead</p>
                         </div>
                     </div>
-                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-5 flex-grow">Arsitek backend dengan 5+ tahun pengalaman membangun sistem Laravel & API-first untuk fintech dan SaaS.</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-5 flex-grow">Arsitek backend dengan 5+ tahun pengalaman membangun sistem Laravel &amp; API-first untuk fintech dan SaaS.</p>
                     <a href="/portfolio/yanuar-alfan" target="_blank" rel="noopener noreferrer" class="btn-secondary text-sm w-full justify-center">
                         Lihat Portofolio
                         <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/>
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"></path>
                         </svg>
                     </a>
                 </article>
@@ -654,7 +634,7 @@
                     <a href="/portfolio/salma-putri" target="_blank" rel="noopener noreferrer" class="btn-secondary text-sm w-full justify-center">
                         Lihat Portofolio
                         <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/>
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"></path>
                         </svg>
                     </a>
                 </article>
@@ -674,7 +654,7 @@
                     <a href="/portfolio/reza-hidayat" target="_blank" rel="noopener noreferrer" class="btn-secondary text-sm w-full justify-center">
                         Lihat Portofolio
                         <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/>
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"></path>
                         </svg>
                     </a>
                 </article>
@@ -694,7 +674,7 @@
                     <a href="/portfolio/dewi-nuraini" target="_blank" rel="noopener noreferrer" class="btn-secondary text-sm w-full justify-center">
                         Lihat Portofolio
                         <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/>
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"></path>
                         </svg>
                     </a>
                 </article>
@@ -710,11 +690,11 @@
                             <p class="text-xs text-gray-500 dark:text-gray-400">DevOps Engineer</p>
                         </div>
                     </div>
-                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-5 flex-grow">Menjaga sistem tetap nyala — CI/CD, observability, dan deploy tanpa downtime di Vercel & AWS.</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-5 flex-grow">Menjaga sistem tetap nyala — CI/CD, observability, dan deploy tanpa downtime di Vercel &amp; AWS.</p>
                     <a href="/portfolio/adi-pratama" target="_blank" rel="noopener noreferrer" class="btn-secondary text-sm w-full justify-center">
                         Lihat Portofolio
                         <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/>
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"></path>
                         </svg>
                     </a>
                 </article>
@@ -734,7 +714,7 @@
                     <a href="/portfolio/laila-marwah" target="_blank" rel="noopener noreferrer" class="btn-secondary text-sm w-full justify-center">
                         Lihat Portofolio
                         <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/>
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"></path>
                         </svg>
                     </a>
                 </article>
@@ -767,19 +747,19 @@
                     </div>
                     <ul class="space-y-3 mb-8">
                         <li class="flex items-center gap-2.5 text-sm text-gray-600 dark:text-gray-300">
-                            <svg class="w-4 h-4 flex-shrink-0 text-black dark:text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                            <svg class="w-4 h-4 flex-shrink-0 text-black dark:text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"></path></svg>
                             Situs responsif 5 halaman
                         </li>
                         <li class="flex items-center gap-2.5 text-sm text-gray-600 dark:text-gray-300">
-                            <svg class="w-4 h-4 flex-shrink-0 text-black dark:text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                            <svg class="w-4 h-4 flex-shrink-0 text-black dark:text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"></path></svg>
                             Setup SEO dasar
                         </li>
                         <li class="flex items-center gap-2.5 text-sm text-gray-600 dark:text-gray-300">
-                            <svg class="w-4 h-4 flex-shrink-0 text-black dark:text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                            <svg class="w-4 h-4 flex-shrink-0 text-black dark:text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"></path></svg>
                             Integrasi form kontak
                         </li>
                         <li class="flex items-center gap-2.5 text-sm text-gray-600 dark:text-gray-300">
-                            <svg class="w-4 h-4 flex-shrink-0 text-black dark:text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                            <svg class="w-4 h-4 flex-shrink-0 text-black dark:text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"></path></svg>
                             Selesai dalam 2 minggu
                         </li>
                     </ul>
@@ -798,23 +778,23 @@
                     </div>
                     <ul class="space-y-3 mb-8">
                         <li class="flex items-center gap-2.5 text-sm text-white/80 dark:text-black/80">
-                            <svg class="w-4 h-4 flex-shrink-0 text-white dark:text-black" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                            <svg class="w-4 h-4 flex-shrink-0 text-white dark:text-black" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"></path></svg>
                             Hingga 15 halaman custom
                         </li>
                         <li class="flex items-center gap-2.5 text-sm text-white/80 dark:text-black/80">
-                            <svg class="w-4 h-4 flex-shrink-0 text-white dark:text-black" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                            <svg class="w-4 h-4 flex-shrink-0 text-white dark:text-black" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"></path></svg>
                             SEO lanjutan + schema
                         </li>
                         <li class="flex items-center gap-2.5 text-sm text-white/80 dark:text-black/80">
-                            <svg class="w-4 h-4 flex-shrink-0 text-white dark:text-black" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                            <svg class="w-4 h-4 flex-shrink-0 text-white dark:text-black" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"></path></svg>
                             CMS admin + analitik
                         </li>
                         <li class="flex items-center gap-2.5 text-sm text-white/80 dark:text-black/80">
-                            <svg class="w-4 h-4 flex-shrink-0 text-white dark:text-black" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                            <svg class="w-4 h-4 flex-shrink-0 text-white dark:text-black" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"></path></svg>
                             Selesai dalam 4 minggu
                         </li>
                         <li class="flex items-center gap-2.5 text-sm text-white/80 dark:text-black/80">
-                            <svg class="w-4 h-4 flex-shrink-0 text-white dark:text-black" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                            <svg class="w-4 h-4 flex-shrink-0 text-white dark:text-black" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"></path></svg>
                             Gratis dukungan 3 bulan
                         </li>
                     </ul>
@@ -833,19 +813,19 @@
                     </div>
                     <ul class="space-y-3 mb-8">
                         <li class="flex items-center gap-2.5 text-sm text-gray-600 dark:text-gray-300">
-                            <svg class="w-4 h-4 flex-shrink-0 text-black dark:text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                            <svg class="w-4 h-4 flex-shrink-0 text-black dark:text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"></path></svg>
                             Halaman &amp; fitur tanpa batas
                         </li>
                         <li class="flex items-center gap-2.5 text-sm text-gray-600 dark:text-gray-300">
-                            <svg class="w-4 h-4 flex-shrink-0 text-black dark:text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                            <svg class="w-4 h-4 flex-shrink-0 text-black dark:text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"></path></svg>
                             PM dedikasi + tim senior
                         </li>
                         <li class="flex items-center gap-2.5 text-sm text-gray-600 dark:text-gray-300">
-                            <svg class="w-4 h-4 flex-shrink-0 text-black dark:text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                            <svg class="w-4 h-4 flex-shrink-0 text-black dark:text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"></path></svg>
                             Integrasi custom &amp; SLA
                         </li>
                         <li class="flex items-center gap-2.5 text-sm text-gray-600 dark:text-gray-300">
-                            <svg class="w-4 h-4 flex-shrink-0 text-black dark:text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                            <svg class="w-4 h-4 flex-shrink-0 text-black dark:text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"></path></svg>
                             Prioritas support 12 bulan
                         </li>
                     </ul>
@@ -870,9 +850,9 @@
                     <div class="card overflow-hidden">
                         <button @click="open = open === 0 ? null : 0" class="w-full flex items-center justify-between gap-4 p-6 text-left" :aria-expanded="open === 0">
                             <span class="font-medium text-sm text-black dark:text-white">Berapa lama waktu pengerjaan proyek pada umumnya?</span>
-                            <svg class="w-4 h-4 flex-shrink-0 text-gray-400 transition-transform" :class="{ 'rotate-180': open === 0 }" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                            <svg class="w-4 h-4 flex-shrink-0 text-gray-400 transition-transform" :class="{ 'rotate-180': open === 0 }" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
                         </button>
-                        <div x-show="open === 0" x-collapse class="px-6 pb-6 text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+                        <div x-show="open === 0" x-collapse="" class="px-6 pb-6 text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
                             Mayoritas proyek selesai dalam 2–8 minggu tergantung scope. Landing page biasanya 2 minggu, situs marketing penuh 4 minggu, dan aplikasi custom 6–8 minggu.
                         </div>
                     </div>
@@ -880,9 +860,9 @@
                     <div class="card overflow-hidden">
                         <button @click="open = open === 1 ? null : 1" class="w-full flex items-center justify-between gap-4 p-6 text-left" :aria-expanded="open === 1">
                             <span class="font-medium text-sm text-black dark:text-white">Apakah Anda menangani hosting dan deployment?</span>
-                            <svg class="w-4 h-4 flex-shrink-0 text-gray-400 transition-transform" :class="{ 'rotate-180': open === 1 }" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                            <svg class="w-4 h-4 flex-shrink-0 text-gray-400 transition-transform" :class="{ 'rotate-180': open === 1 }" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
                         </button>
-                        <div x-show="open === 1" x-collapse x-cloak class="px-6 pb-6 text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+                        <div x-show="open === 1" x-collapse="" x-cloak="" class="px-6 pb-6 text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
                             Ya. Kami deploy ke Vercel, Cloudflare, atau hosting pilihan Anda, lengkap dengan konfigurasi DNS, SSL, dan monitoring sebagai bagian dari setiap proyek.
                         </div>
                     </div>
@@ -890,9 +870,9 @@
                     <div class="card overflow-hidden">
                         <button @click="open = open === 2 ? null : 2" class="w-full flex items-center justify-between gap-4 p-6 text-left" :aria-expanded="open === 2">
                             <span class="font-medium text-sm text-black dark:text-white">Bisakah Anda bekerja dengan brand dan design system yang sudah kami punya?</span>
-                            <svg class="w-4 h-4 flex-shrink-0 text-gray-400 transition-transform" :class="{ 'rotate-180': open === 2 }" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                            <svg class="w-4 h-4 flex-shrink-0 text-gray-400 transition-transform" :class="{ 'rotate-180': open === 2 }" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
                         </button>
-                        <div x-show="open === 2" x-collapse x-cloak class="px-6 pb-6 text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+                        <div x-show="open === 2" x-collapse="" x-cloak="" class="px-6 pb-6 text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
                             Tentu. Kirimkan brand guidelines, file Figma, atau component library Anda — kami sesuaikan proses kami dengan aset yang sudah ada.
                         </div>
                     </div>
@@ -900,9 +880,9 @@
                     <div class="card overflow-hidden">
                         <button @click="open = open === 3 ? null : 3" class="w-full flex items-center justify-between gap-4 p-6 text-left" :aria-expanded="open === 3">
                             <span class="font-medium text-sm text-black dark:text-white">Apa saja yang termasuk dalam paket pemeliharaan?</span>
-                            <svg class="w-4 h-4 flex-shrink-0 text-gray-400 transition-transform" :class="{ 'rotate-180': open === 3 }" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                            <svg class="w-4 h-4 flex-shrink-0 text-gray-400 transition-transform" :class="{ 'rotate-180': open === 3 }" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
                         </button>
-                        <div x-show="open === 3" x-collapse x-cloak class="px-6 pb-6 text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+                        <div x-show="open === 3" x-collapse="" x-cloak="" class="px-6 pb-6 text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
                             Patch keamanan, update dependency, audit performa tiap kuartal, plus alokasi konten/fitur 4 jam per bulan.
                         </div>
                     </div>
@@ -910,9 +890,9 @@
                     <div class="card overflow-hidden">
                         <button @click="open = open === 4 ? null : 4" class="w-full flex items-center justify-between gap-4 p-6 text-left" :aria-expanded="open === 4">
                             <span class="font-medium text-sm text-black dark:text-white">Bagaimana proses pembayaran dan kontrak?</span>
-                            <svg class="w-4 h-4 flex-shrink-0 text-gray-400 transition-transform" :class="{ 'rotate-180': open === 4 }" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                            <svg class="w-4 h-4 flex-shrink-0 text-gray-400 transition-transform" :class="{ 'rotate-180': open === 4 }" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
                         </button>
-                        <div x-show="open === 4" x-collapse x-cloak class="px-6 pb-6 text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+                        <div x-show="open === 4" x-collapse="" x-cloak="" class="px-6 pb-6 text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
                             Deposit 50% di awal, 50% saat serah-terima. Kontrak ditinjau dua pihak; tagihan dalam IDR atau USD via transfer bank atau Wise.
                         </div>
                     </div>
@@ -939,10 +919,9 @@
                     <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
                         <a href="#contact-form" class="inline-flex items-center gap-2 px-8 py-3.5 bg-white dark:bg-black text-black dark:text-white rounded-xl text-sm font-medium hover:scale-[1.02] transition-transform">
                             Mulai Proyek
-                            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7v10"></path></svg>
                         </a>
-                        <a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer"
-                           class="inline-flex items-center gap-2 px-8 py-3.5 bg-white/10 dark:bg-black/10 text-white dark:text-black rounded-xl text-sm font-medium hover:bg-white/20 dark:hover:bg-black/20 transition-colors">
+                        <a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-8 py-3.5 bg-white/10 dark:bg-black/10 text-white dark:text-black rounded-xl text-sm font-medium hover:bg-white/20 dark:hover:bg-black/20 transition-colors">
                             Chat WhatsApp
                         </a>
                     </div>
@@ -965,37 +944,26 @@
                     <p class="section-subtitle mx-auto">Isi form di bawah dan kami balas dalam 24 jam kerja.</p>
                 </div>
 
-                <form
-                    x-data="{ submitting: false, success: false }"
-                    @submit.prevent="submitting = true; setTimeout(() => { submitting = false; success = true; $el.reset(); }, 800)"
-                    class="card p-6 md:p-8 space-y-5"
-                >
+                <form x-data="{ submitting: false, success: false }" @submit.prevent="submitting = true; setTimeout(() => { submitting = false; success = true; $el.reset(); }, 800)" class="card p-6 md:p-8 space-y-5">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                         <label class="block">
                             <span class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1.5">Nama lengkap *</span>
-                            <input type="text" name="name" required
-                                class="w-full px-4 py-3 rounded-xl text-sm bg-[var(--color-bg)] border border-[var(--color-border)] text-black dark:text-white focus:outline-none focus:border-black dark:focus:border-white transition"
-                                placeholder="Budi Santoso">
+                            <input type="text" name="name" required="" class="w-full px-4 py-3 rounded-xl text-sm bg-[var(--color-bg)] border border-[var(--color-border)] text-black dark:text-white focus:outline-none focus:border-black dark:focus:border-white transition" placeholder="Budi Santoso">
                         </label>
                         <label class="block">
                             <span class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1.5">Email *</span>
-                            <input type="email" name="email" required
-                                class="w-full px-4 py-3 rounded-xl text-sm bg-[var(--color-bg)] border border-[var(--color-border)] text-black dark:text-white focus:outline-none focus:border-black dark:focus:border-white transition"
-                                placeholder="budi@perusahaan.com">
+                            <input type="email" name="email" required="" class="w-full px-4 py-3 rounded-xl text-sm bg-[var(--color-bg)] border border-[var(--color-border)] text-black dark:text-white focus:outline-none focus:border-black dark:focus:border-white transition" placeholder="budi@perusahaan.com">
                         </label>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                         <label class="block">
                             <span class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1.5">Nomor WhatsApp</span>
-                            <input type="tel" name="phone"
-                                class="w-full px-4 py-3 rounded-xl text-sm bg-[var(--color-bg)] border border-[var(--color-border)] text-black dark:text-white focus:outline-none focus:border-black dark:focus:border-white transition"
-                                placeholder="+62 812 3456 7890">
+                            <input type="tel" name="phone" class="w-full px-4 py-3 rounded-xl text-sm bg-[var(--color-bg)] border border-[var(--color-border)] text-black dark:text-white focus:outline-none focus:border-black dark:focus:border-white transition" placeholder="+62 812 3456 7890">
                         </label>
                         <label class="block">
                             <span class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1.5">Paket yang diminati</span>
-                            <select name="plan"
-                                class="w-full px-4 py-3 rounded-xl text-sm bg-[var(--color-bg)] border border-[var(--color-border)] text-black dark:text-white focus:outline-none focus:border-black dark:focus:border-white transition appearance-none cursor-pointer">
+                            <select name="plan" class="w-full px-4 py-3 rounded-xl text-sm bg-[var(--color-bg)] border border-[var(--color-border)] text-black dark:text-white focus:outline-none focus:border-black dark:focus:border-white transition appearance-none cursor-pointer">
                                 <option value="">— Pilih paket —</option>
                                 <option value="starter">Starter (Rp 15jt)</option>
                                 <option value="pro">Pro (Rp 50jt)</option>
@@ -1007,9 +975,7 @@
 
                     <label class="block">
                         <span class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1.5">Ceritakan proyek Anda *</span>
-                        <textarea name="message" rows="5" required
-                            class="w-full px-4 py-3 rounded-xl text-sm bg-[var(--color-bg)] border border-[var(--color-border)] text-black dark:text-white focus:outline-none focus:border-black dark:focus:border-white transition resize-none"
-                            placeholder="Latar belakang proyek, tujuan utama, target deadline, dan referensi situs yang Anda sukai."></textarea>
+                        <textarea name="message" rows="5" required="" class="w-full px-4 py-3 rounded-xl text-sm bg-[var(--color-bg)] border border-[var(--color-border)] text-black dark:text-white focus:outline-none focus:border-black dark:focus:border-white transition resize-none" placeholder="Latar belakang proyek, tujuan utama, target deadline, dan referensi situs yang Anda sukai."></textarea>
                     </label>
 
                     <!-- Honeypot (anti-spam) -->
@@ -1018,23 +984,19 @@
                     <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
                         <p class="text-xs text-gray-500 dark:text-gray-400">
                             Atau langsung
-                            <a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer"
-                               class="font-medium text-black dark:text-white underline underline-offset-2 hover:text-green-600 dark:hover:text-green-400">
+                            <a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer" class="font-medium text-black dark:text-white underline underline-offset-2 hover:text-green-600 dark:hover:text-green-400">
                                 chat via WhatsApp
                             </a>.
                         </p>
-                        <button type="submit"
-                            :disabled="submitting"
-                            class="btn-primary w-full sm:w-auto px-8 py-3 disabled:opacity-50 disabled:cursor-wait">
+                        <button type="submit" :disabled="submitting" class="btn-primary w-full sm:w-auto px-8 py-3 disabled:opacity-50 disabled:cursor-wait">
                             <span x-show="!submitting">Kirim pesan</span>
-                            <span x-show="submitting" x-cloak>Mengirim…</span>
-                            <svg x-show="!submitting" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                            <span x-show="submitting" x-cloak="">Mengirim…</span>
+                            <svg x-show="!submitting" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7v10"></path></svg>
                         </button>
                     </div>
 
-                    <div x-show="success" x-cloak x-transition
-                         class="rounded-xl border border-green-500/30 bg-green-50 dark:bg-green-900/20 px-4 py-3 text-sm text-green-700 dark:text-green-300 flex items-center gap-2">
-                        <svg class="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                    <div x-show="success" x-cloak="" x-transition="" class="rounded-xl border border-green-500/30 bg-green-50 dark:bg-green-900/20 px-4 py-3 text-sm text-green-700 dark:text-green-300 flex items-center gap-2">
+                        <svg class="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"></path></svg>
                         Terima kasih! Pesan terkirim — kami akan balas dalam 24 jam.
                     </div>
                 </form>
@@ -1061,13 +1023,13 @@
                 </p>
                 <div class="flex items-center gap-3">
                     <a href="#" class="w-9 h-9 rounded-lg flex items-center justify-center border border-black/10 dark:border-white/10 text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white hover:border-black/30 dark:hover:border-white/30 transition-all" aria-label="GitHub">
-                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"></path></svg>
                     </a>
                     <a href="#" class="w-9 h-9 rounded-lg flex items-center justify-center border border-black/10 dark:border-white/10 text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white hover:border-black/30 dark:hover:border-white/30 transition-all" aria-label="Instagram">
-                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg>
+                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"></path></svg>
                     </a>
                     <a href="#" class="w-9 h-9 rounded-lg flex items-center justify-center border border-black/10 dark:border-white/10 text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white hover:border-black/30 dark:hover:border-white/30 transition-all" aria-label="LinkedIn">
-                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"></path></svg>
                     </a>
                 </div>
             </div>
@@ -1098,25 +1060,24 @@
 
         <div class="pt-8 border-t border-black/5 dark:border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4">
             <p class="text-xs text-gray-400 dark:text-gray-600">
-                &copy; <span id="year"></span> Creative Agency. Hak cipta dilindungi.
+                © <span id="year"></span> Creative Agency. Hak cipta dilindungi.
             </p>
             <div class="flex items-center gap-1 text-xs text-gray-400 dark:text-gray-600">
                 <span>Dibangun dengan</span>
-                <svg class="w-3 h-3 text-red-400" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                <svg class="w-3 h-3 text-red-400" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path></svg>
                 <span>menggunakan Laravel + HTMX</span>
             </div>
         </div>
     </div>
 </footer>
 
-<a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer"
-   class="fixed bottom-6 right-6 z-40 w-14 h-14 bg-green-500 hover:bg-green-600 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all hover:scale-110"
-   aria-label="Chat WhatsApp">
-    <svg class="w-7 h-7 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+<a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-40 w-14 h-14 bg-green-500 hover:bg-green-600 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all hover:scale-110" aria-label="Chat WhatsApp">
+    <svg class="w-7 h-7 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
 </a>
 
 <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 </script>
-</body>
-</html>
+
+
+</body></html>

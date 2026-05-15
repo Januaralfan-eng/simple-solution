@@ -1,0 +1,152 @@
+{
+  "$comment": "Schema of editable text fields. Each field maps to a CSS selector inside preview-home.html. type=text|textarea. Selectors must be unique-targeting.",
+  "sections": [
+    {
+      "id": "hero",
+      "title": "Hero (atas halaman)",
+      "fields": [
+        { "key": "hero.badge",        "label": "Badge \"Tersedia untuk proyek baru\"", "type": "text",     "selector": "main > section:first-of-type .inline-flex.items-center.gap-2.px-4" },
+        { "key": "hero.title",        "label": "Judul utama (boleh HTML, gunakan <br>)", "type": "textarea", "selector": "main > section:first-of-type h1", "html": true },
+        { "key": "hero.subtitle",     "label": "Sub-judul / paragraf utama",          "type": "textarea", "selector": "main > section:first-of-type p.section-subtitle" },
+        { "key": "hero.cta-primary",  "label": "Tombol utama (kiri)",                 "type": "text",     "selector": "main > section:first-of-type a.btn-primary",       "textOnly": true },
+        { "key": "hero.cta-secondary","label": "Tombol sekunder (kanan)",              "type": "text",     "selector": "main > section:first-of-type a.btn-secondary",    "textOnly": true },
+        { "key": "hero.stat1-num",    "label": "Statistik 1 — angka",                 "type": "text",     "selector": "main > section:first-of-type .text-center:nth-child(1) > div:first-child" },
+        { "key": "hero.stat1-label",  "label": "Statistik 1 — label",                 "type": "text",     "selector": "main > section:first-of-type .text-center:nth-child(1) > div:last-child" },
+        { "key": "hero.stat2-num",    "label": "Statistik 2 — angka",                 "type": "text",     "selector": "main > section:first-of-type .text-center:nth-child(2) > div:first-child" },
+        { "key": "hero.stat2-label",  "label": "Statistik 2 — label",                 "type": "text",     "selector": "main > section:first-of-type .text-center:nth-child(2) > div:last-child" },
+        { "key": "hero.stat3-num",    "label": "Statistik 3 — angka",                 "type": "text",     "selector": "main > section:first-of-type .text-center:nth-child(3) > div:first-child" },
+        { "key": "hero.stat3-label",  "label": "Statistik 3 — label",                 "type": "text",     "selector": "main > section:first-of-type .text-center:nth-child(3) > div:last-child" },
+        { "key": "hero.stat4-num",    "label": "Statistik 4 — angka",                 "type": "text",     "selector": "main > section:first-of-type .text-center:nth-child(4) > div:first-child" },
+        { "key": "hero.stat4-label",  "label": "Statistik 4 — label",                 "type": "text",     "selector": "main > section:first-of-type .text-center:nth-child(4) > div:last-child" }
+      ]
+    },
+    {
+      "id": "services",
+      "title": "Services (Layanan)",
+      "fields": [
+        { "key": "services.eyebrow",    "label": "Label kecil \"Apa yang kami kerjakan\"", "type": "text", "selector": "#services .section-label",        "textOnly": true },
+        { "key": "services.title",      "label": "Judul section",                         "type": "text", "selector": "#services h2.section-title" },
+        { "key": "services.subtitle",   "label": "Sub-judul",                             "type": "textarea", "selector": "#services p.section-subtitle" },
+        { "key": "services.card1.title","label": "Card 1 — judul", "type": "text",     "selector": "#services .grid > div:nth-child(1) h3" },
+        { "key": "services.card1.desc", "label": "Card 1 — deskripsi", "type": "textarea", "selector": "#services .grid > div:nth-child(1) p" },
+        { "key": "services.card2.title","label": "Card 2 — judul", "type": "text",     "selector": "#services .grid > div:nth-child(2) h3" },
+        { "key": "services.card2.desc", "label": "Card 2 — deskripsi", "type": "textarea", "selector": "#services .grid > div:nth-child(2) p" },
+        { "key": "services.card3.title","label": "Card 3 — judul", "type": "text",     "selector": "#services .grid > div:nth-child(3) h3" },
+        { "key": "services.card3.desc", "label": "Card 3 — deskripsi", "type": "textarea", "selector": "#services .grid > div:nth-child(3) p" },
+        { "key": "services.card4.title","label": "Card 4 — judul", "type": "text",     "selector": "#services .grid > div:nth-child(4) h3" },
+        { "key": "services.card4.desc", "label": "Card 4 — deskripsi", "type": "textarea", "selector": "#services .grid > div:nth-child(4) p" },
+        { "key": "services.card5.title","label": "Card 5 — judul", "type": "text",     "selector": "#services .grid > div:nth-child(5) h3" },
+        { "key": "services.card5.desc", "label": "Card 5 — deskripsi", "type": "textarea", "selector": "#services .grid > div:nth-child(5) p" },
+        { "key": "services.card6.title","label": "Card 6 — judul", "type": "text",     "selector": "#services .grid > div:nth-child(6) h3" },
+        { "key": "services.card6.desc", "label": "Card 6 — deskripsi", "type": "textarea", "selector": "#services .grid > div:nth-child(6) p" }
+      ]
+    },
+    {
+      "id": "about",
+      "title": "About / Process (Cara kerja)",
+      "fields": [
+        { "key": "about.eyebrow",    "label": "Label kecil \"Cara kerja kami\"", "type": "text",     "selector": "#about .section-label",  "textOnly": true },
+        { "key": "about.title",      "label": "Judul section (boleh <br>)",      "type": "textarea", "selector": "#about h2.section-title", "html": true },
+        { "key": "about.subtitle",   "label": "Sub-judul",                        "type": "textarea", "selector": "#about p.section-subtitle" },
+        { "key": "about.step1.title","label": "Step 1 — judul",                   "type": "text",     "selector": "#about .space-y-6 > div:nth-child(1) h3" },
+        { "key": "about.step1.desc", "label": "Step 1 — deskripsi",               "type": "textarea", "selector": "#about .space-y-6 > div:nth-child(1) p" },
+        { "key": "about.step2.title","label": "Step 2 — judul",                   "type": "text",     "selector": "#about .space-y-6 > div:nth-child(2) h3" },
+        { "key": "about.step2.desc", "label": "Step 2 — deskripsi",               "type": "textarea", "selector": "#about .space-y-6 > div:nth-child(2) p" },
+        { "key": "about.step3.title","label": "Step 3 — judul",                   "type": "text",     "selector": "#about .space-y-6 > div:nth-child(3) h3" },
+        { "key": "about.step3.desc", "label": "Step 3 — deskripsi",               "type": "textarea", "selector": "#about .space-y-6 > div:nth-child(3) p" },
+        { "key": "about.step4.title","label": "Step 4 — judul",                   "type": "text",     "selector": "#about .space-y-6 > div:nth-child(4) h3" },
+        { "key": "about.step4.desc", "label": "Step 4 — deskripsi",               "type": "textarea", "selector": "#about .space-y-6 > div:nth-child(4) p" }
+      ]
+    },
+    {
+      "id": "team",
+      "title": "Tim",
+      "fields": [
+        { "key": "team.eyebrow",  "label": "Label kecil \"Tim kami\"",  "type": "text", "selector": "#team .section-label",  "textOnly": true },
+        { "key": "team.title",    "label": "Judul section",             "type": "text", "selector": "#team h2.section-title" },
+        { "key": "team.subtitle", "label": "Sub-judul",                 "type": "textarea", "selector": "#team p.section-subtitle" },
+        { "key": "team.m1.name",  "label": "Anggota 1 — nama",  "type": "text", "selector": "#team article:nth-of-type(1) h3" },
+        { "key": "team.m1.role",  "label": "Anggota 1 — role",  "type": "text", "selector": "#team article:nth-of-type(1) .min-w-0 > p" },
+        { "key": "team.m1.bio",   "label": "Anggota 1 — bio",   "type": "textarea", "selector": "#team article:nth-of-type(1) > p" },
+        { "key": "team.m2.name",  "label": "Anggota 2 — nama",  "type": "text", "selector": "#team article:nth-of-type(2) h3" },
+        { "key": "team.m2.role",  "label": "Anggota 2 — role",  "type": "text", "selector": "#team article:nth-of-type(2) .min-w-0 > p" },
+        { "key": "team.m2.bio",   "label": "Anggota 2 — bio",   "type": "textarea", "selector": "#team article:nth-of-type(2) > p" },
+        { "key": "team.m3.name",  "label": "Anggota 3 — nama",  "type": "text", "selector": "#team article:nth-of-type(3) h3" },
+        { "key": "team.m3.role",  "label": "Anggota 3 — role",  "type": "text", "selector": "#team article:nth-of-type(3) .min-w-0 > p" },
+        { "key": "team.m3.bio",   "label": "Anggota 3 — bio",   "type": "textarea", "selector": "#team article:nth-of-type(3) > p" },
+        { "key": "team.m4.name",  "label": "Anggota 4 — nama",  "type": "text", "selector": "#team article:nth-of-type(4) h3" },
+        { "key": "team.m4.role",  "label": "Anggota 4 — role",  "type": "text", "selector": "#team article:nth-of-type(4) .min-w-0 > p" },
+        { "key": "team.m4.bio",   "label": "Anggota 4 — bio",   "type": "textarea", "selector": "#team article:nth-of-type(4) > p" },
+        { "key": "team.m5.name",  "label": "Anggota 5 — nama",  "type": "text", "selector": "#team article:nth-of-type(5) h3" },
+        { "key": "team.m5.role",  "label": "Anggota 5 — role",  "type": "text", "selector": "#team article:nth-of-type(5) .min-w-0 > p" },
+        { "key": "team.m5.bio",   "label": "Anggota 5 — bio",   "type": "textarea", "selector": "#team article:nth-of-type(5) > p" },
+        { "key": "team.m6.name",  "label": "Anggota 6 — nama",  "type": "text", "selector": "#team article:nth-of-type(6) h3" },
+        { "key": "team.m6.role",  "label": "Anggota 6 — role",  "type": "text", "selector": "#team article:nth-of-type(6) .min-w-0 > p" },
+        { "key": "team.m6.bio",   "label": "Anggota 6 — bio",   "type": "textarea", "selector": "#team article:nth-of-type(6) > p" }
+      ]
+    },
+    {
+      "id": "pricing",
+      "title": "Pricing (Harga)",
+      "fields": [
+        { "key": "pricing.eyebrow",    "label": "Label kecil \"Harga\"", "type": "text",     "selector": "#pricing .section-label",      "textOnly": true },
+        { "key": "pricing.title",      "label": "Judul section",         "type": "text",     "selector": "#pricing h2.section-title" },
+        { "key": "pricing.subtitle",   "label": "Sub-judul",             "type": "textarea", "selector": "#pricing p.section-subtitle" },
+        { "key": "pricing.p1.name",    "label": "Paket 1 — nama",        "type": "text",     "selector": "#pricing .grid > div:nth-child(1) h3" },
+        { "key": "pricing.p1.desc",    "label": "Paket 1 — deskripsi",   "type": "text",     "selector": "#pricing .grid > div:nth-child(1) .mb-6 > p" },
+        { "key": "pricing.p1.price",   "label": "Paket 1 — harga",       "type": "text",     "selector": "#pricing .grid > div:nth-child(1) .mb-8 > span:first-child" },
+        { "key": "pricing.p2.name",    "label": "Paket 2 (Pro) — nama",  "type": "text",     "selector": "#pricing .grid > div:nth-child(2) h3" },
+        { "key": "pricing.p2.desc",    "label": "Paket 2 — deskripsi",   "type": "text",     "selector": "#pricing .grid > div:nth-child(2) .mb-6 > p" },
+        { "key": "pricing.p2.price",   "label": "Paket 2 — harga",       "type": "text",     "selector": "#pricing .grid > div:nth-child(2) .mb-8 > span:first-child" },
+        { "key": "pricing.p3.name",    "label": "Paket 3 — nama",        "type": "text",     "selector": "#pricing .grid > div:nth-child(3) h3" },
+        { "key": "pricing.p3.desc",    "label": "Paket 3 — deskripsi",   "type": "text",     "selector": "#pricing .grid > div:nth-child(3) .mb-6 > p" },
+        { "key": "pricing.p3.price",   "label": "Paket 3 — harga",       "type": "text",     "selector": "#pricing .grid > div:nth-child(3) .mb-8 > span:first-child" }
+      ]
+    },
+    {
+      "id": "faq",
+      "title": "FAQ",
+      "fields": [
+        { "key": "faq.title", "label": "Judul section", "type": "text", "selector": "#faq h2.section-title" },
+        { "key": "faq.q1",    "label": "Q1 — pertanyaan", "type": "text", "selector": "#faq .space-y-2 > div:nth-child(1) button > span:first-child" },
+        { "key": "faq.a1",    "label": "Q1 — jawaban",    "type": "textarea", "selector": "#faq .space-y-2 > div:nth-child(1) > div:last-child" },
+        { "key": "faq.q2",    "label": "Q2 — pertanyaan", "type": "text", "selector": "#faq .space-y-2 > div:nth-child(2) button > span:first-child" },
+        { "key": "faq.a2",    "label": "Q2 — jawaban",    "type": "textarea", "selector": "#faq .space-y-2 > div:nth-child(2) > div:last-child" },
+        { "key": "faq.q3",    "label": "Q3 — pertanyaan", "type": "text", "selector": "#faq .space-y-2 > div:nth-child(3) button > span:first-child" },
+        { "key": "faq.a3",    "label": "Q3 — jawaban",    "type": "textarea", "selector": "#faq .space-y-2 > div:nth-child(3) > div:last-child" },
+        { "key": "faq.q4",    "label": "Q4 — pertanyaan", "type": "text", "selector": "#faq .space-y-2 > div:nth-child(4) button > span:first-child" },
+        { "key": "faq.a4",    "label": "Q4 — jawaban",    "type": "textarea", "selector": "#faq .space-y-2 > div:nth-child(4) > div:last-child" },
+        { "key": "faq.q5",    "label": "Q5 — pertanyaan", "type": "text", "selector": "#faq .space-y-2 > div:nth-child(5) button > span:first-child" },
+        { "key": "faq.a5",    "label": "Q5 — jawaban",    "type": "textarea", "selector": "#faq .space-y-2 > div:nth-child(5) > div:last-child" }
+      ]
+    },
+    {
+      "id": "cta",
+      "title": "CTA Akhir",
+      "fields": [
+        { "key": "cta.eyebrow",  "label": "Label \"Siap mulai?\"",     "type": "text",     "selector": "#cta .section-label",  "textOnly": true },
+        { "key": "cta.title",    "label": "Judul (boleh <br>)",        "type": "textarea", "selector": "#cta h2",                "html": true },
+        { "key": "cta.subtitle", "label": "Sub-judul",                  "type": "textarea", "selector": "#cta p" },
+        { "key": "cta.btn1",     "label": "Tombol 1 (kiri)",            "type": "text",     "selector": "#cta a:first-of-type",   "textOnly": true },
+        { "key": "cta.btn2",     "label": "Tombol 2 (WhatsApp)",        "type": "text",     "selector": "#cta a:last-of-type" }
+      ]
+    },
+    {
+      "id": "contact-form",
+      "title": "Form Kontak",
+      "fields": [
+        { "key": "contact.eyebrow",  "label": "Label \"Hubungi kami\"", "type": "text",     "selector": "#contact-form .section-label", "textOnly": true },
+        { "key": "contact.title",    "label": "Judul section",          "type": "text",     "selector": "#contact-form h2.section-title" },
+        { "key": "contact.subtitle", "label": "Sub-judul",              "type": "textarea", "selector": "#contact-form p.section-subtitle" }
+      ]
+    },
+    {
+      "id": "footer",
+      "title": "Footer",
+      "fields": [
+        { "key": "footer.tagline",   "label": "Tagline brand",    "type": "textarea", "selector": "footer .lg\\:col-span-2 > p" },
+        { "key": "footer.copyright", "label": "Copyright",        "type": "textarea", "selector": "footer .pt-8 > p", "html": true }
+      ]
+    }
+  ]
+}

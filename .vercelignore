@@ -21,3 +21,11 @@ vendor/
 vite.config.js
 .env*
 *.md
+
+# Local admin tooling — must NOT be exposed on public Vercel deploy
+admin.html
+admin-schema.json
+admin-config.json
+server.js
+railway.json
+preview-home.html.bak
