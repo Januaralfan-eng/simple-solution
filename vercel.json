@@ -1,5 +1,8 @@
 {
   "version": 2,
+  "framework": null,
+  "buildCommand": "echo 'static + functions only — no build step'",
+  "outputDirectory": ".",
   "trailingSlash": false,
   "rewrites": [
     { "source": "/",        "destination": "/preview-home.html" },
