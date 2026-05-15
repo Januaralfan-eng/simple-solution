@@ -29,7 +29,10 @@ export default async function handler(req, res) {
             if ($el.length > 1 && !f.multi) { skipped.push({ key, reason: `selector matched ${$el.length} elements (use multi:true to apply to all)` }); continue; }
 
             const applyToOne = ($one) => {
-                if (f.html) {
+                if (f.attribute) {
+                    if (newValue === '' || newValue == null) $one.removeAttr(f.attribute);
+                    else                                     $one.attr(f.attribute, String(newValue));
+                } else if (f.html) {
                     $one.html(String(newValue));
                 } else if (f.textOnly) {
                     const directTextNodes = $one.contents().filter((_, n) => n.type === 'text').toArray();

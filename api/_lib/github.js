@@ -33,6 +33,7 @@ export async function readFile(filePath) {
 }
 
 // Commit a file (create or update). Auto-retries once on SHA mismatch (409).
+// content: string (UTF-8 text) or Buffer (binary). Use opts.rawBase64 to skip encoding.
 export async function writeFile(filePath, content, message, opts = {}) {
     const url = `${apiBase()}/contents/${encodeURIComponent(filePath).replace(/%2F/g, '/')}`;
 
@@ -42,9 +43,18 @@ export async function writeFile(filePath, content, message, opts = {}) {
         sha = existing.sha;
     }
 
+    let base64Content;
+    if (opts.rawBase64) {
+        base64Content = String(opts.rawBase64);
+    } else if (Buffer.isBuffer(content)) {
+        base64Content = content.toString('base64');
+    } else {
+        base64Content = Buffer.from(String(content), 'utf8').toString('base64');
+    }
+
     const body = {
         message,
-        content: Buffer.from(content, 'utf8').toString('base64'),
+        content: base64Content,
         branch:  branch(),
         ...(sha ? { sha } : {}),
         committer: opts.committer,

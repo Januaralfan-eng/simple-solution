@@ -19,14 +19,15 @@ export default async function handler(req, res) {
                 if (f.multi && $el.length > 0) $el = $el.first();
                 let value = '';
                 if ($el.length === 0)        value = '';
+                else if (f.attribute)        value = $el.attr(f.attribute) ?? '';
                 else if (f.html)             value = $el.html() ?? '';
                 else if (f.textOnly)         value = $el.contents().filter((_, n) => n.type === 'text').text();
                 else                         value = $el.text();
                 out.fields.push({
                     key: f.key, label: f.label, type: f.type,
-                    html: !!f.html, textOnly: !!f.textOnly, multi: !!f.multi,
+                    html: !!f.html, textOnly: !!f.textOnly, multi: !!f.multi, attribute: f.attribute || null,
                     found: $(f.selector).length > 0, matches: $(f.selector).length, selector: f.selector,
-                    value: value.trim(),
+                    value: f.attribute ? value : value.trim(),
                 });
             }
             result.sections.push(out);

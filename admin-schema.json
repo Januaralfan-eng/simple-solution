@@ -6,7 +6,8 @@
       "title": "Brand & SEO (global)",
       "fields": [
         { "key": "brand.name",   "label": "Nama brand (sync di navbar, footer, copyright)", "type": "text", "selector": "[data-brand-name]",   "multi": true },
-        { "key": "brand.letter", "label": "Huruf logo (kotak hitam/putih) — Phase 2 ganti ke image upload", "type": "text", "selector": "[data-brand-letter]", "multi": true },
+        { "key": "brand.logo",   "label": "Logo brand (upload PNG/JPG/SVG, max 2 MB). Kosongkan untuk pakai huruf fallback.", "type": "image", "selector": "[data-brand-logo]", "attribute": "src", "multi": true, "uploadSlot": "logo" },
+        { "key": "brand.letter", "label": "Huruf logo (fallback kalau logo image kosong)", "type": "text", "selector": "[data-brand-letter]", "multi": true },
         { "key": "page.title",   "label": "Page title (tag <title>, untuk SEO + browser tab)", "type": "text", "selector": "head > title" }
       ]
     },

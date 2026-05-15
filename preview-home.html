@@ -155,6 +155,11 @@
         .animate-delay-400 { animation-delay: 400ms; }
         .animate-delay-600 { animation-delay: 600ms; }
         [x-cloak] { display: none !important; }
+
+        /* Logo image vs letter fallback */
+        .logo-img:not([src]),
+        .logo-img[src=""] { display: none !important; }
+        .logo-img[src]:not([src=""]) ~ .logo-letter { display: none !important; }
     </style>
     <script defer="" src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
@@ -165,10 +170,11 @@
               toggle() { this.dark = !this.dark; document.documentElement.classList.toggle('dark', this.dark); localStorage.setItem('theme', this.dark ? 'dark' : 'light'); } }" x-init="window.addEventListener('scroll', () => { scrolled = window.scrollY > 16 })" :class="{ 'shadow-sm': scrolled }" style="height: var(--navbar-height);">
     <div class="container-agency h-full flex items-center justify-between">
         <a href="#" class="flex items-center gap-2.5 group" aria-label="Creative Agency Home">
-            <div class="w-8 h-8 rounded-lg bg-black dark:bg-white flex items-center justify-center transition-transform group-hover:scale-95">
-                <span data-brand-letter="" class="font-display font-bold text-white dark:text-black text-sm"> ∞ </span>
+            <div class="w-8 h-8 rounded-lg bg-black dark:bg-white flex items-center justify-center transition-transform group-hover:scale-95 overflow-hidden">
+                <img data-brand-logo class="logo-img w-full h-full object-contain" alt="Logo">
+                <span data-brand-letter class="logo-letter font-display font-bold text-white dark:text-black text-sm">∞</span>
             </div>
-            <span data-brand-name="" class="font-display font-semibold text-base tracking-tight text-black dark:text-white">Simple solution</span>
+            <span data-brand-name class="font-display font-semibold text-base tracking-tight text-black dark:text-white">Simple solution</span>
         </a>
 
         <nav class="hidden md:flex items-center gap-1">
@@ -1091,10 +1097,11 @@
 
             <div class="lg:col-span-2">
                 <a href="#" class="flex items-center gap-2.5 mb-4">
-                    <div class="w-8 h-8 rounded-lg bg-black dark:bg-white flex items-center justify-center">
-                        <span data-brand-letter="" class="font-display font-bold text-white dark:text-black text-sm"> ∞ </span>
+                    <div class="w-8 h-8 rounded-lg bg-black dark:bg-white flex items-center justify-center overflow-hidden">
+                        <img data-brand-logo class="logo-img w-full h-full object-contain" alt="Logo">
+                        <span data-brand-letter class="logo-letter font-display font-bold text-white dark:text-black text-sm">∞</span>
                     </div>
-                    <span data-brand-name="" class="font-display font-semibold text-base tracking-tight text-black dark:text-white">Simple solution</span>
+                    <span data-brand-name class="font-display font-semibold text-base tracking-tight text-black dark:text-white">Simple solution</span>
                 </a>
                 <p class="text-sm leading-relaxed text-gray-500 dark:text-gray-400 max-w-xs mb-6">
                     Kami bangun pengalaman digital. Produk yang tampil bagus dan bekerja lebih bagus lagi.

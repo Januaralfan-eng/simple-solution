@@ -451,9 +451,17 @@
         lbl.textContent = field.label;
         const hint = document.createElement('span');
         hint.className = 'key-hint';
-        hint.textContent = field.key + (field.html ? ' · HTML' : field.textOnly ? ' · text-only' : '');
+        hint.textContent = field.key
+            + (field.html ? ' · HTML' : field.textOnly ? ' · text-only' : '')
+            + (field.attribute ? ` · attr=${field.attribute}` : '')
+            + (field.multi ? ' · multi' : '');
         lbl.appendChild(hint);
         wrap.appendChild(lbl);
+
+        if (field.type === 'image') {
+            wrap.appendChild(makeImageField(field));
+            return wrap;
+        }
 
         const input = field.type === 'textarea'
             ? document.createElement('textarea')
@@ -476,6 +484,128 @@
         });
         wrap.appendChild(input);
         return wrap;
+    }
+
+    function makeImageField(field) {
+        // Image field: hidden text input + preview + file upload + url input + clear button
+        const container = document.createElement('div');
+        container.style.cssText = 'display:flex;flex-direction:column;gap:8px';
+
+        // Hidden text input that holds the actual value (URL)
+        const hidden = document.createElement('input');
+        hidden.type = 'hidden';
+        hidden.dataset.key = field.key;
+        hidden.value = field.value || '';
+        originalValues[field.key] = field.value || '';
+
+        // Preview area
+        const preview = document.createElement('div');
+        preview.style.cssText = 'display:flex;align-items:center;gap:10px;padding:8px;background:var(--bg);border:1px solid var(--border);border-radius:8px;min-height:60px';
+
+        const img = document.createElement('img');
+        img.style.cssText = 'width:48px;height:48px;object-fit:contain;background:repeating-conic-gradient(#333 0% 25%, #222 0% 50%) 0/8px 8px;border-radius:6px;flex-shrink:0';
+        img.alt = 'preview';
+        img.src = field.value || '';
+        img.onerror = () => { img.style.opacity = '0.3'; };
+
+        const status = document.createElement('div');
+        status.style.cssText = 'flex:1;font-size:12px;color:var(--text-dim);min-width:0;word-break:break-all';
+        status.textContent = field.value ? field.value : '(belum ada gambar — pakai fallback letter)';
+
+        preview.appendChild(img);
+        preview.appendChild(status);
+        container.appendChild(preview);
+
+        // File input
+        const fileWrap = document.createElement('div');
+        fileWrap.style.cssText = 'display:flex;gap:6px;align-items:center';
+        const fileInput = document.createElement('input');
+        fileInput.type = 'file';
+        fileInput.accept = 'image/png,image/jpeg,image/gif,image/webp,image/svg+xml';
+        fileInput.style.cssText = 'flex:1;font-size:12px;color:var(--text-dim)';
+
+        const uploadBtn = document.createElement('button');
+        uploadBtn.type = 'button';
+        uploadBtn.textContent = 'Upload';
+        uploadBtn.disabled = true;
+        uploadBtn.style.cssText = 'padding:6px 12px;font-size:12px';
+
+        const clearBtn = document.createElement('button');
+        clearBtn.type = 'button';
+        clearBtn.className = 'ghost';
+        clearBtn.textContent = 'Kosongkan';
+        clearBtn.style.cssText = 'padding:6px 12px;font-size:12px';
+
+        fileWrap.appendChild(fileInput);
+        fileWrap.appendChild(uploadBtn);
+        fileWrap.appendChild(clearBtn);
+        container.appendChild(fileWrap);
+
+        fileInput.addEventListener('change', () => {
+            uploadBtn.disabled = fileInput.files.length === 0;
+        });
+
+        uploadBtn.addEventListener('click', async () => {
+            const file = fileInput.files[0];
+            if (!file) return;
+            if (file.size > 2 * 1024 * 1024) {
+                showToast(`File ${(file.size/1024/1024).toFixed(1)} MB melebihi batas 2 MB`, 'error');
+                return;
+            }
+            uploadBtn.disabled = true;
+            uploadBtn.textContent = 'Mengunggah…';
+            try {
+                const dataUri = await new Promise((resolve, reject) => {
+                    const r = new FileReader();
+                    r.onload = () => resolve(r.result);
+                    r.onerror = reject;
+                    r.readAsDataURL(file);
+                });
+                const res = await fetch('/api/upload-image', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        filename: file.name,
+                        data:     dataUri,
+                        slot:     field.uploadSlot || undefined,
+                    }),
+                });
+                const data = await res.json();
+                if (!res.ok || !data.ok) throw new Error(data.error || 'Upload gagal');
+
+                hidden.value = data.url;
+                img.src = data.url;
+                img.style.opacity = '1';
+                status.textContent = `Tersimpan: ${data.url} · commit ${data.commitSha}`;
+                dirtyKeys.add(field.key);
+                container.parentElement.classList.add('dirty');
+                updateDirty();
+                showToast(`Upload berhasil: ${data.url}`, 'success');
+            } catch (err) {
+                showToast('Upload gagal: ' + err.message, 'error');
+            } finally {
+                uploadBtn.disabled = fileInput.files.length === 0;
+                uploadBtn.textContent = 'Upload';
+            }
+        });
+
+        clearBtn.addEventListener('click', () => {
+            hidden.value = '';
+            img.src = '';
+            img.style.opacity = '0.3';
+            status.textContent = '(kosong — akan pakai fallback letter setelah disimpan)';
+            if (originalValues[field.key] !== '') {
+                dirtyKeys.add(field.key);
+                container.parentElement.classList.add('dirty');
+            } else {
+                dirtyKeys.delete(field.key);
+                container.parentElement.classList.remove('dirty');
+            }
+            updateDirty();
+        });
+
+        container.appendChild(hidden);
+        return container;
     }
 
     function makeSection(section) {
