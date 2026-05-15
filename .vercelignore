@@ -1,5 +1,4 @@
-# Static-only deploy — exclude Laravel scaffold from Vercel upload
-api/
+# Laravel scaffold — not used on Vercel (we serve static + Node Functions)
 app/
 artisan
 bootstrap/
@@ -8,24 +7,25 @@ composer.json
 composer.lock
 config/
 database/
-node_modules/
-package-lock.json
-package.json
-postcss.config.js
 public/
 resources/
 routes/
 storage/
-tailwind.config.js
 vendor/
+
+# Frontend build configs — not used (admin.html uses Tailwind CDN)
+postcss.config.js
+tailwind.config.js
 vite.config.js
+
+# Env / docs / backups / local lockfiles
 .env*
 *.md
+preview-home.html.bak
 
-# Local admin tooling — must NOT be exposed on public Vercel deploy
-admin.html
-admin-schema.json
-admin-config.json
+# Local-only server — Vercel uses api/*.js Functions instead
 server.js
 railway.json
-preview-home.html.bak
+
+# node_modules will be installed fresh by Vercel
+node_modules/

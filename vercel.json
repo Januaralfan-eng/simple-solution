@@ -3,6 +3,7 @@
   "trailingSlash": false,
   "rewrites": [
     { "source": "/",        "destination": "/preview-home.html" },
-    { "source": "/mobile",  "destination": "/preview-mobile.html" }
+    { "source": "/mobile",  "destination": "/preview-mobile.html" },
+    { "source": "/admin",   "destination": "/admin.html" }
   ]
 }

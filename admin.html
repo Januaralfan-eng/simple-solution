@@ -629,7 +629,11 @@
             const data = await res.json();
             if (!res.ok || !data.ok) throw new Error(data.error || 'Save failed');
 
-            showToast(`Tersimpan: ${data.applied.length} field${data.skipped.length ? ` · ${data.skipped.length} di-skip` : ''}`, 'success');
+            let toastMsg = `Tersimpan: ${data.applied.length} field${data.skipped.length ? ` · ${data.skipped.length} di-skip` : ''}`;
+            if (data.committed && data.commitSha) {
+                toastMsg += ` · commit ${data.commitSha} · Vercel redeploy ~30 dtk`;
+            }
+            showToast(toastMsg, 'success');
 
             for (const k of data.applied) {
                 const el = document.querySelector(`[data-key="${k}"]`);

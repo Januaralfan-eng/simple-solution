@@ -35,6 +35,6 @@ Thumbs.db
 # Local admin tool artifacts
 preview-home.html.bak
 _*.json
-admin-config.json
+# admin-config.json is committed for cloud admin (hash + salt visible, scrypt-protected)
 
 .vercel
