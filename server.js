@@ -10,6 +10,7 @@ import fs     from 'node:fs';
 import fsp    from 'node:fs/promises';
 import path   from 'node:path';
 import crypto from 'node:crypto';
+import { spawn } from 'node:child_process';
 import { promisify } from 'node:util';
 import { fileURLToPath } from 'node:url';
 import { load as loadCheerio } from 'cheerio';
@@ -324,6 +325,80 @@ async function handleGetSchema(req, res) {
     if (!getSession(req)) { sendJson(res, 401, { error: 'Belum login' }); return; }
     try { sendJson(res, 200, await loadSchema()); }
     catch (err) { sendJson(res, 500, { error: err.message }); }
+}
+
+// ────────────────────────────────────────────────────────────────────────
+// Publish endpoint: git add + commit + push, then vercel deploy --prod
+// ────────────────────────────────────────────────────────────────────────
+
+function runCmd(cmd, args, { useShell = false, timeoutMs = 180_000 } = {}) {
+    return new Promise((resolve) => {
+        const proc = spawn(cmd, args, { cwd: ROOT, shell: useShell, windowsHide: true });
+        let stdout = '', stderr = '';
+        const timer = setTimeout(() => { proc.kill(); }, timeoutMs);
+        proc.stdout?.on('data', d => { stdout += d.toString(); });
+        proc.stderr?.on('data', d => { stderr += d.toString(); });
+        proc.on('close', code => {
+            clearTimeout(timer);
+            resolve({ ok: code === 0, code, stdout: stdout.slice(-4000), stderr: stderr.slice(-4000) });
+        });
+        proc.on('error', err => {
+            clearTimeout(timer);
+            resolve({ ok: false, code: -1, stdout, stderr: err.message });
+        });
+    });
+}
+
+async function handlePublish(req, res) {
+    if (!getSession(req)) { sendJson(res, 401, { error: 'Belum login' }); return; }
+
+    let body = {};
+    try { body = await readJsonBody(req); } catch {}
+    const message = (body.message && String(body.message).trim()) ||
+        `Update content via admin — ${new Date().toISOString()}`;
+
+    const steps = [];
+
+    // 1) git add preview-home.html
+    let r = await runCmd('git', ['add', 'preview-home.html']);
+    steps.push({ name: 'git add', ok: r.ok, code: r.code, stdout: r.stdout, stderr: r.stderr });
+    if (!r.ok) { sendJson(res, 500, { ok: false, steps, error: 'git add gagal' }); return; }
+
+    // 2) check if there are staged changes
+    r = await runCmd('git', ['diff', '--cached', '--quiet']);
+    const hasChanges = r.code !== 0;
+    steps.push({ name: 'git status', ok: true, note: hasChanges ? 'ada perubahan untuk commit' : 'tidak ada perubahan (deploy ulang saja)' });
+
+    if (hasChanges) {
+        // 3) git commit
+        r = await runCmd('git', ['commit', '-m', message]);
+        steps.push({ name: 'git commit', ok: r.ok, code: r.code, stdout: r.stdout, stderr: r.stderr });
+        if (!r.ok) { sendJson(res, 500, { ok: false, steps, error: 'git commit gagal' }); return; }
+
+        // 4) git push
+        r = await runCmd('git', ['push']);
+        steps.push({ name: 'git push', ok: r.ok, code: r.code, stdout: r.stdout, stderr: r.stderr });
+        if (!r.ok) { sendJson(res, 500, { ok: false, steps, error: 'git push gagal — cek koneksi / kredensial' }); return; }
+    }
+
+    // 5) vercel deploy --prod (shell needed on Windows for .cmd)
+    r = await runCmd('vercel', ['deploy', '--prod', '--yes'], { useShell: true });
+    steps.push({ name: 'vercel deploy', ok: r.ok, code: r.code, stdout: r.stdout, stderr: r.stderr });
+    if (!r.ok) { sendJson(res, 500, { ok: false, steps, error: 'vercel deploy gagal' }); return; }
+
+    // Parse URLs from vercel output
+    const combined = r.stdout + '\n' + r.stderr;
+    const aliasMatch     = combined.match(/Aliased:\s+(https?:\/\/[^\s]+\.vercel\.app)/);
+    const productionMatch= combined.match(/Production:\s+(https?:\/\/[^\s]+\.vercel\.app)/);
+
+    sendJson(res, 200, {
+        ok: true,
+        steps,
+        productionUrl: productionMatch?.[1] || null,
+        publicUrl:     aliasMatch?.[1]      || null,
+        committed:     hasChanges,
+        message:       hasChanges ? message : null,
+    });
 }
 
 // ────────────────────────────────────────────────────────────────────────
