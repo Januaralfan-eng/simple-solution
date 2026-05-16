@@ -492,7 +492,7 @@
       ],
       "listConfig": {
         "container": "#pricing .grid",
-        "itemSelector": "div.card, div.p-8",
+        "itemSelector": "div",
         "min": 1,
         "max": 6,
         "label": "Paket"
@@ -506,7 +506,7 @@
         },
         {
           "key": "desc",
-          "label": "Deskripsi",
+          "label": "Deskripsi paket",
           "type": "text",
           "scope": ".mb-6 > p"
         },
@@ -515,6 +515,61 @@
           "label": "Harga (teks)",
           "type": "text",
           "scope": ".mb-8 > span:first-child"
+        },
+        {
+          "key": "price-suffix",
+          "label": "Suffix harga (mis. \"/ proyek\")",
+          "type": "text",
+          "scope": ".mb-8 > span:last-child"
+        },
+        {
+          "key": "feature1",
+          "label": "Fitur 1",
+          "type": "text",
+          "scope": "ul > li:nth-of-type(1)",
+          "textOnly": true
+        },
+        {
+          "key": "feature2",
+          "label": "Fitur 2",
+          "type": "text",
+          "scope": "ul > li:nth-of-type(2)",
+          "textOnly": true
+        },
+        {
+          "key": "feature3",
+          "label": "Fitur 3",
+          "type": "text",
+          "scope": "ul > li:nth-of-type(3)",
+          "textOnly": true
+        },
+        {
+          "key": "feature4",
+          "label": "Fitur 4",
+          "type": "text",
+          "scope": "ul > li:nth-of-type(4)",
+          "textOnly": true
+        },
+        {
+          "key": "feature5",
+          "label": "Fitur 5 (opsional, kosongkan kalau tidak ada)",
+          "type": "text",
+          "scope": "ul > li:nth-of-type(5)",
+          "textOnly": true
+        },
+        {
+          "key": "cta",
+          "label": "Tombol CTA teks (mis. \"Mulai Sekarang\")",
+          "type": "text",
+          "scope": "a.block.text-center",
+          "textOnly": true
+        },
+        {
+          "key": "cta-link",
+          "label": "Tombol CTA link (URL)",
+          "type": "text",
+          "scope": "a.block.text-center",
+          "attribute": "href"
         }
       ]
     },
