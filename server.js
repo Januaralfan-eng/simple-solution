@@ -254,15 +254,16 @@ async function handleGetContent(req, res) {
         for (const section of schema.sections) {
             const out = { id: section.id, title: section.title, fields: [] };
             for (const f of section.fields) {
-                const $el = $(f.selector);
+                let $el = $(f.selector);
+                if (f.multi && $el.length > 0) $el = $el.first();
                 let value = '';
                 if ($el.length === 0)        value = '';
                 else if (f.html)             value = $el.html() ?? '';
                 else if (f.textOnly)         value = $el.contents().filter((_, n) => n.type === 'text').text();
                 else                         value = $el.text();
                 out.fields.push({
-                    key: f.key, label: f.label, type: f.type, html: !!f.html, textOnly: !!f.textOnly,
-                    found: $el.length > 0, selector: f.selector, value: value.trim(),
+                    key: f.key, label: f.label, type: f.type, html: !!f.html, textOnly: !!f.textOnly, multi: !!f.multi,
+                    found: $(f.selector).length > 0, matches: $(f.selector).length, selector: f.selector, value: value.trim(),
                 });
             }
             result.sections.push(out);
@@ -295,20 +296,28 @@ async function handlePostSave(req, res) {
             if (!f) { skipped.push({ key, reason: 'unknown key' }); continue; }
             const $el = $(f.selector);
             if ($el.length === 0) { skipped.push({ key, reason: 'selector matched 0 elements' }); continue; }
-            if ($el.length > 1)   { skipped.push({ key, reason: `selector matched ${$el.length} elements (must be unique)` }); continue; }
+            if ($el.length > 1 && !f.multi) { skipped.push({ key, reason: `selector matched ${$el.length} elements (use multi:true to apply to all)` }); continue; }
 
-            if (f.html) {
-                $el.html(String(newValue));
-            } else if (f.textOnly) {
-                const directTextNodes = $el.contents().filter((_, n) => n.type === 'text').toArray();
-                if (directTextNodes.length === 0) {
-                    $el.prepend(' ' + String(newValue) + ' ');
+            const applyToOne = ($one) => {
+                if (f.html) {
+                    $one.html(String(newValue));
+                } else if (f.textOnly) {
+                    const directTextNodes = $one.contents().filter((_, n) => n.type === 'text').toArray();
+                    if (directTextNodes.length === 0) {
+                        $one.prepend(' ' + String(newValue) + ' ');
+                    } else {
+                        directTextNodes[0].data = ' ' + String(newValue) + ' ';
+                        for (let i = 1; i < directTextNodes.length; i++) directTextNodes[i].data = '';
+                    }
                 } else {
-                    directTextNodes[0].data = ' ' + String(newValue) + ' ';
-                    for (let i = 1; i < directTextNodes.length; i++) directTextNodes[i].data = '';
+                    $one.text(String(newValue));
                 }
+            };
+
+            if (f.multi) {
+                $el.each((_, el) => applyToOne($(el)));
             } else {
-                $el.text(String(newValue));
+                applyToOne($el);
             }
             applied.push(key);
         }
