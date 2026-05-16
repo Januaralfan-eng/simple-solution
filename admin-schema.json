@@ -246,14 +246,6 @@
           "label": "Deskripsi proyek",
           "type": "textarea",
           "scope": ".p-6 > p"
-        },
-        {
-          "key": "slug",
-          "label": "Slug (untuk counter views/likes — unik per proyek, mis. \"acme-dashboard\")",
-          "type": "text",
-          "scope": "",
-          "attribute": "data-portfolio-slug",
-          "scopeIsRoot": true
         }
       ]
     },
