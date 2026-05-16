@@ -156,6 +156,17 @@
         .animate-delay-600 { animation-delay: 600ms; }
         [x-cloak] { display: none !important; }
 
+        /* Team avatar image vs letter fallback */
+        .team-avatar-img:not([src]),
+        .team-avatar-img[src=""] { display: none !important; }
+        .team-avatar-img[src]:not([src=""]) ~ .team-avatar-letter { display: none !important; }
+
+        /* Founder badge — only visible when article has data-team-founder="true" */
+        .founder-badge { display: none; }
+        article[data-team-founder="true"] .founder-badge,
+        article[data-team-founder="1"]    .founder-badge,
+        article[data-team-founder="ya"]   .founder-badge { display: inline-flex; }
+
         /* Logo image vs letter fallback */
         .logo-img:not([src]),
         .logo-img[src=""] { display: none !important; }
@@ -561,18 +572,20 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
 
                 <!-- Member 1 -->
-                <article class="card p-6 group flex flex-col">
+                <article data-team-founder="true" class="card p-6 group flex flex-col">
                     <div class="flex items-center gap-4 mb-5">
-                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-indigo-100 to-indigo-200 dark:from-indigo-900/40 dark:to-indigo-800/40 flex items-center justify-center flex-shrink-0">
-                            <span class="font-bold text-lg text-indigo-700 dark:text-indigo-300 data-team-initial>YA</span>
+                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-indigo-100 to-indigo-200 dark:from-indigo-900/40 dark:to-indigo-800/40 flex items-center justify-center flex-shrink-0 overflow-hidden">
+                            <img data-team-avatar class="team-avatar-img w-full h-full object-cover" alt="Avatar">
+                            <span data-team-initial class="team-avatar-letter w-full h-full flex items-center justify-center font-bold text-lg text-indigo-700 dark:text-indigo-300">YA</span>
                         </div>
-                        <div class=" min-w-0"="">
+                        <div class="min-w-0">
+                            <span class="founder-badge items-center gap-1 px-2 py-0.5 rounded-full bg-amber-100 dark:bg-amber-900/40 text-amber-700 dark:text-amber-300 text-[10px] font-semibold uppercase tracking-wider mb-1">★ Founder</span>
                             <h3 class="font-semibold text-base text-black dark:text-white truncate">Yanuar Alfan</h3>
                             <p class="text-xs text-gray-500 dark:text-gray-400">Founder · Digital builder</p>
-                        </span></div>
+                        </div>
                     </div>
-                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-5 flex-grow">Membangun branding digital,  berbasis UX yang mengubah riset pengguna menjadi antarmuka pixel-perfect dan sesuai brand.</p>
-                    <a data-team-link="" href="https://portofolioyanuaralfan.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-secondary text-sm w-full justify-center">
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-5 flex-grow">Membangun branding digital, berbasis UX yang mengubah riset pengguna menjadi antarmuka pixel-perfect dan sesuai brand.</p>
+                    <a data-team-link href="https://portofolioyanuaralfan.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-secondary text-sm w-full justify-center">
                         Lihat Portofolio
                         <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"></path>
@@ -581,18 +594,20 @@
                 </article>
 
                 <!-- Member 2 -->
-                <article class="card p-6 group flex flex-col">
+                <article data-team-founder="true" class="card p-6 group flex flex-col">
                     <div class="flex items-center gap-4 mb-5">
-                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-rose-100 to-rose-200 dark:from-rose-900/40 dark:to-rose-800/40 flex items-center justify-center flex-shrink-0">
-                            <span class="font-bold text-lg text-rose-700 dark:text-rose-300 data-team-initial>SP</span>
+                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-rose-100 to-rose-200 dark:from-rose-900/40 dark:to-rose-800/40 flex items-center justify-center flex-shrink-0 overflow-hidden">
+                            <img data-team-avatar class="team-avatar-img w-full h-full object-cover" alt="Avatar">
+                            <span data-team-initial class="team-avatar-letter w-full h-full flex items-center justify-center font-bold text-lg text-rose-700 dark:text-rose-300">MF</span>
                         </div>
-                        <div class=" min-w-0"="">
+                        <div class="min-w-0">
+                            <span class="founder-badge items-center gap-1 px-2 py-0.5 rounded-full bg-amber-100 dark:bg-amber-900/40 text-amber-700 dark:text-amber-300 text-[10px] font-semibold uppercase tracking-wider mb-1">★ Founder</span>
                             <h3 class="font-semibold text-base text-black dark:text-white truncate">Muzadidil Fuad</h3>
-                            <p class="text-xs text-gray-500 dark:text-gray-400">Founder . Back End Developer</p>
-                        </span></div>
+                            <p class="text-xs text-gray-500 dark:text-gray-400">Founder · Back End Developer</p>
+                        </div>
                     </div>
                     <p class="text-sm text-gray-500 dark:text-gray-400 mb-5 flex-grow">Arsitek backend dengan 5+ tahun pengalaman membangun sistem Laravel &amp; API-first untuk fintech dan SaaS.</p>
-                    <a data-team-link="" href="/portfolio/MUZADIDIL-FUAD" target="_blank" rel="noopener noreferrer" class="btn-secondary text-sm w-full justify-center">
+                    <a data-team-link href="/portfolio/MUZADIDIL-FUAD" target="_blank" rel="noopener noreferrer" class="btn-secondary text-sm w-full justify-center">
                         Lihat Portofolio
                         <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"></path>
@@ -1052,7 +1067,7 @@
 
 <script>
     document.getElementById('year').textContent = new Date().getFullYear();
-
+
 </script>
 
 

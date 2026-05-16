@@ -386,6 +386,13 @@
           "scope": ".min-w-0 > p"
         },
         {
+          "key": "is_founder",
+          "label": "Founder? (isi \"true\" untuk tampilkan badge ★ Founder, kosongkan = bukan)",
+          "type": "text",
+          "scope": "",
+          "attribute": "data-team-founder"
+        },
+        {
           "key": "initial",
           "label": "Inisial (2 huruf avatar)",
           "type": "text",
