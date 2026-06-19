@@ -149,22 +149,22 @@
         .mesh-gradient {
             background:
                 radial-gradient(ellipse 80% 80% at 20% -20%, rgba(120,119,198,.08) 0%, transparent 50%),
-                radial-gradient(ellipse 80% 80% at 80% 80%, rgba(0,0,0,.04) 0%, transparent 50%),
-                linear-gradient(to bottom, rgba(255,255,255,.93), rgba(255,255,255,.97)),
-                url('/images/blog-placeholder.jpg');
-            background-size: auto, auto, auto, cover;
-            background-position: center, center, center, center;
-            background-repeat: no-repeat;
+                radial-gradient(ellipse 80% 80% at 80% 80%, rgba(0,0,0,.04) 0%, transparent 50%);
         }
         .dark .mesh-gradient {
             background:
                 radial-gradient(ellipse 80% 80% at 20% -20%, rgba(120,119,198,.10) 0%, transparent 50%),
-                radial-gradient(ellipse 80% 80% at 80% 80%, rgba(255,255,255,.04) 0%, transparent 50%),
-                linear-gradient(to bottom, rgba(15,15,16,.93), rgba(15,15,16,.97)),
-                url('/images/blog-placeholder.jpg');
-            background-size: auto, auto, auto, cover;
-            background-position: center, center, center, center;
+                radial-gradient(ellipse 80% 80% at 80% 80%, rgba(255,255,255,.04) 0%, transparent 50%);
+        }
+        .hero-content-bg {
+            background-image: linear-gradient(to bottom, rgba(255,255,255,.94), rgba(255,255,255,.97)), url('/images/blog-placeholder.jpg');
+            background-size: cover;
+            background-position: center;
             background-repeat: no-repeat;
+            border-radius: 24px;
+        }
+        .dark .hero-content-bg {
+            background-image: linear-gradient(to bottom, rgba(15,15,16,.94), rgba(15,15,16,.97)), url('/images/blog-placeholder.jpg');
         }
         .bg-grid-pattern {
             background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
@@ -267,7 +267,7 @@
         <div class="absolute top-1/4 -left-20 w-[500px] h-[500px] rounded-full bg-black/5 dark:bg-white/5 blur-3xl pointer-events-none animate-pulse-slow"></div>
         <div class="absolute bottom-1/4 -right-20 w-[400px] h-[400px] rounded-full bg-black/5 dark:bg-white/5 blur-3xl pointer-events-none animate-pulse-slow animate-delay-300"></div>
 
-        <div class="container-agency relative z-10 py-24 text-center">
+        <div class="container-agency relative z-10 py-24 text-center hero-content-bg">
             <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-black/10 dark:border-white/10 text-xs font-medium text-gray-500 dark:text-gray-400 mb-8 bg-white/60 dark:bg-black/60 backdrop-blur-sm animate-fade-up">Dipercaya 50+ bisnis di Jember &amp; Jawa Timur</div>
 
             <h1 class="section-title text-5xl md:text-7xl lg:text-8xl mb-6 text-balance animate-fade-up animate-delay-100">Bisnis Anda Bagus.<br>
@@ -735,7 +735,7 @@
                 <!-- Article 1 -->
                 <article class="card group cursor-pointer flex flex-col">
                     <div class="aspect-[16/10] overflow-hidden relative bg-gradient-to-br from-indigo-100 to-rose-100 dark:from-indigo-950/30 dark:to-rose-950/30 flex items-center justify-center">
-                        <img src="/images/blog-placeholder.jpg" alt="Cover artikel" class="absolute inset-0 w-full h-full object-cover">
+                        <span class="font-display font-bold text-5xl text-black/10 dark:text-white/10">01</span>
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
                         <div class="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400 mb-3">
@@ -755,7 +755,7 @@
                 <!-- Article 2 -->
                 <article class="card group cursor-pointer flex flex-col">
                     <div class="aspect-[16/10] overflow-hidden relative bg-gradient-to-br from-emerald-100 to-sky-100 dark:from-emerald-950/30 dark:to-sky-950/30 flex items-center justify-center">
-                        <img src="/images/blog-placeholder.jpg" alt="Cover artikel" class="absolute inset-0 w-full h-full object-cover">
+                        <span class="font-display font-bold text-5xl text-black/10 dark:text-white/10">02</span>
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
                         <div class="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400 mb-3">
@@ -775,7 +775,7 @@
                 <!-- Article 3 -->
                 <article class="card group cursor-pointer flex flex-col">
                     <div class="aspect-[16/10] overflow-hidden relative bg-gradient-to-br from-amber-100 to-orange-100 dark:from-amber-950/30 dark:to-orange-950/30 flex items-center justify-center">
-                        <img src="/images/blog-placeholder.jpg" alt="Cover artikel" class="absolute inset-0 w-full h-full object-cover">
+                        <span class="font-display font-bold text-5xl text-black/10 dark:text-white/10">03</span>
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
                         <div class="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400 mb-3">
