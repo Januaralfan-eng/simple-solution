@@ -200,7 +200,7 @@
               toggle() { this.dark = !this.dark; document.documentElement.classList.toggle('dark', this.dark); localStorage.setItem('theme', this.dark ? 'dark' : 'light'); } }" x-init="window.addEventListener('scroll', () => { scrolled = window.scrollY > 16 })" :class="{ 'shadow-sm': scrolled }" style="height: var(--navbar-height);">
     <div class="container-agency h-full flex items-center justify-between">
         <a href="#" class="flex items-center gap-2.5 group" aria-label="Creative Agency Home">
-            <div class="w-8 h-8 rounded-lg bg-black dark:bg-white flex items-center justify-center transition-transform group-hover:scale-95 overflow-hidden">
+            <div class="w-8 h-8 rounded-lg bg-white flex items-center justify-center transition-transform group-hover:scale-95 overflow-hidden border border-black/10 dark:border-white/10">
                 <img data-brand-logo="" class="logo-img w-full h-full object-contain" alt="Logo" src="/images/logo.svg">
                 <span data-brand-letter="" class="logo-letter font-display font-bold text-white dark:text-black text-sm">∞</span>
             </div>
@@ -1264,7 +1264,7 @@
 
             <div class="lg:col-span-2">
                 <a href="#" class="flex items-center gap-2.5 mb-4">
-                    <div class="w-8 h-8 rounded-lg bg-black dark:bg-white flex items-center justify-center overflow-hidden">
+                    <div class="w-8 h-8 rounded-lg bg-white flex items-center justify-center overflow-hidden border border-black/10 dark:border-white/10">
                         <img data-brand-logo="" class="logo-img w-full h-full object-contain" alt="Logo" src="/images/logo.svg">
                         <span data-brand-letter="" class="logo-letter font-display font-bold text-white dark:text-black text-sm">∞</span>
                     </div>
