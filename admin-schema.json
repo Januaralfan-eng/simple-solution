@@ -481,6 +481,64 @@
       ]
     },
     {
+      "id": "testimonials",
+      "title": "Testimoni Klien",
+      "fields": [
+        {
+          "key": "testimonials.eyebrow",
+          "label": "Label kecil \"Kata klien kami\"",
+          "type": "text",
+          "selector": "#testimonials .section-label",
+          "textOnly": true
+        },
+        {
+          "key": "testimonials.title",
+          "label": "Judul section",
+          "type": "text",
+          "selector": "#testimonials h2.section-title"
+        },
+        {
+          "key": "testimonials.subtitle",
+          "label": "Sub-judul",
+          "type": "textarea",
+          "selector": "#testimonials p.section-subtitle"
+        }
+      ],
+      "listConfig": {
+        "container": "#testimonials .grid",
+        "itemSelector": "article",
+        "min": 1,
+        "max": 12,
+        "label": "Testimoni"
+      },
+      "itemFields": [
+        {
+          "key": "quote",
+          "label": "Kutipan testimoni",
+          "type": "textarea",
+          "scope": "p.flex-grow"
+        },
+        {
+          "key": "name",
+          "label": "Nama (PIC)",
+          "type": "text",
+          "scope": "h3"
+        },
+        {
+          "key": "business",
+          "label": "Bisnis · Kota",
+          "type": "text",
+          "scope": "p.text-xs"
+        },
+        {
+          "key": "badge",
+          "label": "Badge layanan (mis. \"Web Portofolio\")",
+          "type": "text",
+          "scope": "span"
+        }
+      ]
+    },
+    {
       "id": "pricing",
       "title": "Harga (Pricing)",
       "fields": [
