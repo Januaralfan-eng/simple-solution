@@ -383,7 +383,7 @@
           "key": "role",
           "label": "Jabatan / role",
           "type": "text",
-          "scope": ".min-w-0 > p"
+          "scope": "p.text-xs"
         },
         {
           "key": "is_founder",
@@ -410,7 +410,7 @@
           "key": "bio",
           "label": "Bio",
           "type": "textarea",
-          "scope": "> p"
+          "scope": "p.text-sm"
         },
         {
           "key": "link",
@@ -522,19 +522,19 @@
           "key": "desc",
           "label": "Deskripsi paket",
           "type": "text",
-          "scope": ".mb-6 > p"
+          "scope": ".mb-5 > p"
         },
         {
           "key": "price",
           "label": "Harga (teks)",
           "type": "text",
-          "scope": ".mb-8 > span:first-child"
+          "scope": ".mb-6 > span:first-child"
         },
         {
           "key": "price-suffix",
           "label": "Suffix harga (mis. \"/ proyek\")",
           "type": "text",
-          "scope": ".mb-8 > span:last-child"
+          "scope": ".mb-6 > span:last-child"
         },
         {
           "key": "feature1",
