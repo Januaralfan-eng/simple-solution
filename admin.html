@@ -282,6 +282,132 @@
             gap: 8px;
             margin-top: 8px;
         }
+
+        /* ── Invoice section ── */
+        details.section.invoice { border-color: rgba(74, 222, 128, 0.3); }
+        .invoice-hint {
+            background: rgba(74, 222, 128, 0.06);
+            border: 1px solid rgba(74, 222, 128, 0.18);
+            border-radius: 8px;
+            padding: 8px 12px;
+            font-size: 11px;
+            color: var(--text-dim);
+            line-height: 1.6;
+            margin-bottom: 14px;
+        }
+        .inv-row { display: flex; gap: 8px; margin-bottom: 10px; }
+        .inv-row .field { flex: 1; margin-bottom: 0; }
+        .inv-section-label {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin: 16px 0 8px;
+            padding-top: 12px;
+            border-top: 1px solid var(--border);
+        }
+        .inv-section-label:first-of-type { margin-top: 0; padding-top: 0; border-top: 0; }
+        .inv-items { display: flex; flex-direction: column; gap: 8px; margin-bottom: 10px; }
+        .inv-item-row {
+            display: grid;
+            grid-template-columns: 1fr 56px 90px 90px 28px;
+            gap: 6px;
+            align-items: center;
+        }
+        .inv-item-row input {
+            background: var(--bg);
+            color: var(--text);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 7px 8px;
+            font: inherit;
+            font-size: 12px;
+            width: 100%;
+            outline: none;
+        }
+        .inv-item-row input:focus { border-color: var(--accent); }
+        .inv-item-subtotal {
+            font-size: 12px;
+            color: var(--text-dim);
+            text-align: right;
+            padding-right: 4px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .inv-item-remove {
+            background: transparent;
+            border: 1px solid rgba(239,68,68,.3);
+            color: #fca5a5;
+            border-radius: 6px;
+            width: 28px;
+            height: 28px;
+            padding: 0;
+            font-size: 14px;
+            line-height: 1;
+            cursor: pointer;
+        }
+        .inv-item-remove:hover { background: rgba(239,68,68,.1); }
+        .inv-add-row {
+            padding: 6px 12px;
+            font-size: 12px;
+            align-self: flex-start;
+        }
+        .inv-totals {
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .inv-totals-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; font-size: 12px; color: var(--text-dim); }
+        .inv-totals-row input { width: 130px; text-align: right; background: var(--bg); color: var(--text); border: 1px solid var(--border); border-radius: 6px; padding: 6px 8px; font: inherit; font-size: 12px; }
+        .inv-totals-row.grand { font-size: 14px; font-weight: 700; color: var(--text); padding-top: 6px; border-top: 1px solid var(--border); }
+        .inv-totals-row.grand span:last-child { color: var(--accent); }
+        .inv-print-btn { width: 100%; margin-top: 14px; }
+
+        /* ── Printable invoice template (hidden on screen, shown via print) ── */
+        #invoice-print-area { display: none; }
+        @media print {
+            body * { visibility: hidden; }
+            #invoice-print-area, #invoice-print-area * { visibility: visible; }
+            #invoice-print-area {
+                display: block;
+                position: absolute;
+                top: 0; left: 0;
+                width: 100%;
+                padding: 24px 32px;
+                font-family: ui-sans-serif, system-ui, "Segoe UI", Roboto, sans-serif;
+                color: #111;
+                background: #fff;
+            }
+            .inv-doc-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 28px; }
+            .inv-doc-logo { display: flex; align-items: center; gap: 8px; }
+            .inv-doc-logo img { width: 32px; height: 32px; object-fit: contain; }
+            .inv-doc-logo span { font-weight: 700; font-size: 16px; }
+            .inv-doc-title { text-align: right; }
+            .inv-doc-title h1 { font-size: 22px; letter-spacing: 0.05em; margin-bottom: 4px; }
+            .inv-doc-title div { font-size: 12px; color: #555; }
+            .inv-doc-parties { display: flex; justify-content: space-between; gap: 24px; margin-bottom: 24px; }
+            .inv-doc-parties > div { flex: 1; font-size: 12px; color: #333; white-space: pre-line; line-height: 1.6; }
+            .inv-doc-parties h4 { font-size: 10px; text-transform: uppercase; letter-spacing: 0.06em; color: #888; margin-bottom: 6px; }
+            table.inv-doc-table { width: 100%; border-collapse: collapse; margin-bottom: 16px; font-size: 12px; }
+            table.inv-doc-table th { text-align: left; border-bottom: 2px solid #111; padding: 6px 8px; font-size: 10px; text-transform: uppercase; letter-spacing: 0.04em; color: #555; }
+            table.inv-doc-table td { padding: 8px; border-bottom: 1px solid #ddd; }
+            table.inv-doc-table th:nth-child(2), table.inv-doc-table td:nth-child(2),
+            table.inv-doc-table th:nth-child(3), table.inv-doc-table td:nth-child(3),
+            table.inv-doc-table th:nth-child(4), table.inv-doc-table td:nth-child(4) { text-align: right; }
+            .inv-doc-totals { display: flex; justify-content: flex-end; margin-bottom: 24px; }
+            .inv-doc-totals table { font-size: 12px; }
+            .inv-doc-totals td { padding: 4px 8px; }
+            .inv-doc-totals td:first-child { color: #555; text-align: right; }
+            .inv-doc-totals td:last-child { text-align: right; min-width: 120px; }
+            .inv-doc-totals tr.grand td { font-weight: 700; font-size: 15px; border-top: 2px solid #111; padding-top: 8px; }
+            .inv-doc-notes { font-size: 11px; color: #555; white-space: pre-line; line-height: 1.6; border-top: 1px solid #ddd; padding-top: 12px; }
+            @page { size: A4; margin: 14mm; }
+        }
     </style>
 </head>
 <body>
@@ -340,6 +466,7 @@
 </div>
 
 <div class="toast" id="toast"></div>
+<div id="invoice-print-area"></div>
 
 <script>
     const loginScreen   = document.getElementById('login-screen');
@@ -804,6 +931,217 @@
         });
     }
 
+    // ─── Invoice section (pinned, no persistence — print/PDF only) ──
+    function formatRupiah(n) {
+        n = Math.round(Number(n) || 0);
+        return 'Rp ' + n.toLocaleString('id-ID');
+    }
+
+    function parseNum(v) {
+        return parseFloat(String(v || '0').replace(/[^\d.-]/g, '')) || 0;
+    }
+
+    function escapeHtml(str) {
+        const div = document.createElement('div');
+        div.textContent = str == null ? '' : str;
+        return div.innerHTML;
+    }
+
+    function recalcInvoiceTotals() {
+        const itemsContainer = document.getElementById('inv-items');
+        if (!itemsContainer) return;
+        let subtotal = 0;
+        itemsContainer.querySelectorAll('.inv-item-row').forEach(row => {
+            const qty = parseNum(row.querySelector('.inv-item-qty').value);
+            const price = parseNum(row.querySelector('.inv-item-price').value);
+            const lineTotal = qty * price;
+            row.querySelector('.inv-item-subtotal').textContent = formatRupiah(lineTotal);
+            subtotal += lineTotal;
+        });
+        const discount = parseNum(document.getElementById('inv-discount').value);
+        const grand = Math.max(0, subtotal - discount);
+        document.getElementById('inv-subtotal').textContent = formatRupiah(subtotal);
+        document.getElementById('inv-grand-total').textContent = formatRupiah(grand);
+    }
+
+    function makeInvoiceItemRow(item) {
+        item = item || { desc: '', qty: 1, price: '' };
+        const row = document.createElement('div');
+        row.className = 'inv-item-row';
+
+        const desc = document.createElement('input');
+        desc.type = 'text'; desc.placeholder = 'Deskripsi item'; desc.value = item.desc; desc.className = 'inv-item-desc';
+
+        const qty = document.createElement('input');
+        qty.type = 'text'; qty.inputMode = 'numeric'; qty.placeholder = 'Qty'; qty.value = item.qty; qty.className = 'inv-item-qty';
+
+        const price = document.createElement('input');
+        price.type = 'text'; price.inputMode = 'numeric'; price.placeholder = 'Harga'; price.value = item.price; price.className = 'inv-item-price';
+
+        const subtotal = document.createElement('div');
+        subtotal.className = 'inv-item-subtotal';
+        subtotal.textContent = formatRupiah(0);
+
+        const removeBtn = document.createElement('button');
+        removeBtn.type = 'button'; removeBtn.className = 'inv-item-remove'; removeBtn.textContent = '×';
+        removeBtn.title = 'Hapus item';
+        removeBtn.addEventListener('click', () => { row.remove(); recalcInvoiceTotals(); });
+
+        [desc, qty, price].forEach(el => el.addEventListener('input', recalcInvoiceTotals));
+
+        row.appendChild(desc); row.appendChild(qty); row.appendChild(price); row.appendChild(subtotal); row.appendChild(removeBtn);
+        return row;
+    }
+
+    function makeInvoiceSection() {
+        const det = document.createElement('details');
+        det.className = 'section invoice';
+        det.dataset.sectionId = '_invoice';
+
+        const sum = document.createElement('summary');
+        sum.innerHTML = '<span>🧾 Buat Invoice</span><span style="display:flex;align-items:center"><span class="count">Sekali pakai</span></span>';
+        det.appendChild(sum);
+
+        const fields = document.createElement('div');
+        fields.className = 'fields';
+        fields.innerHTML = `
+            <div class="invoice-hint">Isi data di bawah lalu klik "Cetak / Simpan PDF". Invoice tidak disimpan ke server — hanya untuk dicetak atau diunduh sebagai PDF saat ini juga. Item, qty, dan harga bisa diisi bebas sesuai pesanan.</div>
+
+            <div class="inv-section-label">Dari (penerbit)</div>
+            <div class="field"><label>Nama usaha</label><input type="text" id="inv-from-name" value="Simple Solution"></div>
+            <div class="field"><label>Kontak (alamat / WA / email)</label><textarea id="inv-from-contact" rows="2">Jember, Jawa Timur
+WA 0857-5521-1349 &middot; admin@simplesolution.com</textarea></div>
+
+            <div class="inv-section-label">Kepada (klien)</div>
+            <div class="field"><label>Nama klien / bisnis</label><input type="text" id="inv-to-name" placeholder="Misal: CV Maju Bersama"></div>
+            <div class="field"><label>Kontak klien (opsional)</label><textarea id="inv-to-contact" rows="2" placeholder="Alamat / WA / email klien"></textarea></div>
+
+            <div class="inv-section-label">Detail invoice</div>
+            <div class="inv-row">
+                <div class="field"><label>No. Invoice</label><input type="text" id="inv-number"></div>
+                <div class="field"><label>Tanggal</label><input type="date" id="inv-date"></div>
+            </div>
+            <div class="field"><label>Jatuh tempo (opsional)</label><input type="date" id="inv-due"></div>
+
+            <div class="inv-section-label">Item — bisa ditambah/dihapus bebas</div>
+            <div class="inv-items" id="inv-items"></div>
+            <button type="button" class="ghost inv-add-row" id="inv-add-row">+ Tambah Item</button>
+
+            <div class="inv-totals">
+                <div class="inv-totals-row"><span>Subtotal</span><span id="inv-subtotal">Rp 0</span></div>
+                <div class="inv-totals-row"><span>Diskon (Rp)</span><input type="text" id="inv-discount" value="0" inputmode="numeric"></div>
+                <div class="inv-totals-row grand"><span>Total</span><span id="inv-grand-total">Rp 0</span></div>
+            </div>
+
+            <div class="field" style="margin-top:14px">
+                <label>Catatan / info pembayaran (opsional)</label>
+                <textarea id="inv-notes" rows="3">Pembayaran 50% di muka, 50% saat serah terima.
+Transfer ke [Bank] [No. Rekening] a.n. [Nama]</textarea>
+            </div>
+
+            <button type="button" class="inv-print-btn" id="inv-print-btn">Cetak / Simpan PDF</button>
+        `;
+        det.appendChild(fields);
+        return det;
+    }
+
+    function buildPrintableInvoice() {
+        const area = document.getElementById('invoice-print-area');
+        const fromName    = document.getElementById('inv-from-name').value || 'Simple Solution';
+        const fromContact = document.getElementById('inv-from-contact').value || '';
+        const toName      = document.getElementById('inv-to-name').value || '';
+        const toContact   = document.getElementById('inv-to-contact').value || '';
+        const number      = document.getElementById('inv-number').value || '';
+        const date        = document.getElementById('inv-date').value || '';
+        const due         = document.getElementById('inv-due').value || '';
+        const notes       = document.getElementById('inv-notes').value || '';
+        const discount    = parseNum(document.getElementById('inv-discount').value);
+
+        const rows = Array.from(document.querySelectorAll('#inv-items .inv-item-row'));
+        let subtotal = 0;
+        const itemsHtml = rows.map(row => {
+            const desc  = row.querySelector('.inv-item-desc').value.trim();
+            const qty   = parseNum(row.querySelector('.inv-item-qty').value);
+            const price = parseNum(row.querySelector('.inv-item-price').value);
+            if (!desc || qty <= 0) return '';
+            const lineTotal = qty * price;
+            subtotal += lineTotal;
+            return `<tr><td>${escapeHtml(desc)}</td><td>${qty}</td><td>${formatRupiah(price)}</td><td>${formatRupiah(lineTotal)}</td></tr>`;
+        }).join('');
+
+        const grand = Math.max(0, subtotal - discount);
+
+        const fmtDate = (s) => {
+            if (!s) return '';
+            const d = new Date(s + 'T00:00:00');
+            return d.toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' });
+        };
+
+        area.innerHTML = `
+            <div class="inv-doc-header">
+                <div class="inv-doc-logo">
+                    <img src="/images/logo.png" onerror="this.style.display='none'" alt="">
+                    <span>${escapeHtml(fromName)}</span>
+                </div>
+                <div class="inv-doc-title">
+                    <h1>INVOICE</h1>
+                    <div>No. ${escapeHtml(number)}</div>
+                    <div>Tanggal: ${fmtDate(date)}</div>
+                    ${due ? `<div>Jatuh tempo: ${fmtDate(due)}</div>` : ''}
+                </div>
+            </div>
+            <div class="inv-doc-parties">
+                <div><h4>Dari</h4>${escapeHtml(fromName)}\n${escapeHtml(fromContact)}</div>
+                <div><h4>Kepada</h4>${escapeHtml(toName)}\n${escapeHtml(toContact)}</div>
+            </div>
+            <table class="inv-doc-table">
+                <thead><tr><th>Item</th><th>Qty</th><th>Harga</th><th>Subtotal</th></tr></thead>
+                <tbody>${itemsHtml}</tbody>
+            </table>
+            <div class="inv-doc-totals">
+                <table>
+                    <tr><td>Subtotal</td><td>${formatRupiah(subtotal)}</td></tr>
+                    ${discount > 0 ? `<tr><td>Diskon</td><td>-${formatRupiah(discount)}</td></tr>` : ''}
+                    <tr class="grand"><td>Total</td><td>${formatRupiah(grand)}</td></tr>
+                </table>
+            </div>
+            ${notes ? `<div class="inv-doc-notes">${escapeHtml(notes)}</div>` : ''}
+        `;
+    }
+
+    function wireInvoiceSection() {
+        const itemsContainer = document.getElementById('inv-items');
+        if (!itemsContainer) return;
+        const addBtn        = document.getElementById('inv-add-row');
+        const printBtn       = document.getElementById('inv-print-btn');
+        const discountInput = document.getElementById('inv-discount');
+        const numberInput   = document.getElementById('inv-number');
+        const dateInput      = document.getElementById('inv-date');
+
+        const today = new Date();
+        dateInput.value = today.toISOString().slice(0, 10);
+        numberInput.value = 'INV-' + today.toISOString().slice(0, 10).replace(/-/g, '') + '-001';
+
+        itemsContainer.appendChild(makeInvoiceItemRow());
+        recalcInvoiceTotals();
+
+        addBtn.addEventListener('click', () => {
+            itemsContainer.appendChild(makeInvoiceItemRow());
+            recalcInvoiceTotals();
+        });
+        discountInput.addEventListener('input', recalcInvoiceTotals);
+
+        printBtn.addEventListener('click', () => {
+            const toName = document.getElementById('inv-to-name').value.trim();
+            const rows = Array.from(itemsContainer.querySelectorAll('.inv-item-row'));
+            const validItems = rows.filter(r => r.querySelector('.inv-item-desc').value.trim() && parseNum(r.querySelector('.inv-item-qty').value) > 0);
+            if (!toName) { showToast('Isi nama klien dulu', 'error'); return; }
+            if (validItems.length === 0) { showToast('Tambahkan minimal 1 item dengan qty > 0', 'error'); return; }
+            buildPrintableInvoice();
+            window.print();
+        });
+    }
+
     async function loadContent() {
         formArea.innerHTML = '<div class="loading">Memuat schema &amp; konten…</div>';
         originalValues = {};
@@ -818,6 +1156,10 @@
             // Account section first
             formArea.appendChild(makeAccountSection());
             wireAccountSection();
+
+            // Invoice builder (pinned, no persistence)
+            formArea.appendChild(makeInvoiceSection());
+            wireInvoiceSection();
 
             // Then content sections
             if (data.sections && data.sections.length) {
