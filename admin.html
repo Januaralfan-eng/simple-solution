@@ -1138,7 +1138,10 @@ Transfer ke [Bank] [No. Rekening] a.n. [Nama]</textarea>
             if (!toName) { showToast('Isi nama klien dulu', 'error'); return; }
             if (validItems.length === 0) { showToast('Tambahkan minimal 1 item dengan qty > 0', 'error'); return; }
             buildPrintableInvoice();
+            const adminPath = window.location.pathname;
+            history.replaceState(null, '', '/');
             window.print();
+            history.replaceState(null, '', adminPath);
         });
     }
 
